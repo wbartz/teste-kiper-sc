@@ -5,7 +5,7 @@ services:
     build:
       context: ./api-nexthouse
       args:
-        - DATABASE_URL=postgres://nexthouse:nexthouse@database/nexthouse
+        - DATABASE_URL=mysql://root:nexthouse@database/nexthouse
         - HASH_KEY=768d04fdd9caf9191aae594e5edd1bcefb60bfd847effa0995c8ec4ba67caced
     working_dir: /app
     ports:
@@ -17,14 +17,13 @@ services:
     networks:
       - api
   database:
-    image: postgres:10.4
+    image: mysql
     restart: always
     ports:
-      - 5432:5432
+      - 3306:3306
     environment:
-      - POSTGRES_PASSWORD=nexthouse
-      - POSTGRES_DB=nexthouse
-      - POSTGRES_USER=nexthouse
+      - MYSQL_ROOT_PASSWORD=nexthouse
+      - MYSQL_DATABASE=nexthouse
     networks:
       - api
 networks:
