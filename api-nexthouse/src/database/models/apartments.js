@@ -4,16 +4,19 @@
  * @typedef Apartments
  * @property {int} id
  * @property {int} number
- * @property {string} block
+ * @property {int} block
  */
 
 module.exports = (sequelize, DataTypes) => {
   const Apartments = sequelize.define('Apartments', {
     number: DataTypes.INTEGER,
-    block: DataTypes.STRING
+    block_id: DataTypes.INTEGER
   }, {});
   Apartments.associate = function(models) {
-    // associations can be defined here
+    Apartments.hasMany(models.Blocks, {
+      foreignKey: 'block_id',
+      as: 'blocks'
+    })
   };
   return Apartments;
 };

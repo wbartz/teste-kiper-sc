@@ -1,0 +1,6 @@
+[32minfo[39m: [ERROR: 2020-04-16T13:49:16.473Z] - authentication - TypeError: Key must be a buffer
+[33mwarn[39m: [ERROR: 2020-04-16T13:49:52.768Z] - authentication - TypeError: Key must be a buffer
+[33mwarn[39m: [ERROR: 2020-04-16T13:50:06.802Z] - authentication - TypeError: Key must be a buffer
+[33mwarn[39m: [ERROR: 2020-04-16T13:50:27.079Z] - authentication - TypeError: Key must be a buffer
+[33mwarn[39m: [ERROR: 2020-04-16T13:51:04.221Z] - authentication - TypeError: Key must be a buffer
+[33mwarn[39m: [ERROR: 2020-04-16T13:51:35.361Z] - authentication - TypeError: Key must be a buffer

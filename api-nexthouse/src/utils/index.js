@@ -14,15 +14,11 @@ const logger = winston.createLogger({
   ],
 });
 
-logger.stream = {
-  write(message) {
-    const date = new Date();
-    logger.info(`[ERROR: ${date.toISOString()}] - ${message}`);
-  },
-};
-
 module.exports = {
-  logger,
+  alert: message => {
+    const date = new Date();
+    logger.warn(`[ERROR: ${date.toISOString()}] - ${message}`);
+  },
   authenticated: (req, res, next) => {
     const token = req.headers['Authorization'];
 
@@ -34,7 +30,7 @@ module.exports = {
 
     jwt.verify(token, HASH_KEY, (error, decoded) => {
       if (error) {
-        logger.error(`token verify - ${error}`);
+        this.alert(`token verify - ${error}`);
         return res.status(401).send({
           type: 'error',
           code: 'authentication-failed',

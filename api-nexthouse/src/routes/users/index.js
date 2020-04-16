@@ -40,8 +40,8 @@ router.post('/login', async (req, res) => {
       user,
     });
   } catch (error) {
-    utils.logger.error(`authentication - ${error}`);
-    res.status(401).json({
+    utils.alert(`authentication: ${error}`);
+    return res.status(401).json({
       type: 'error',
       code: 'auth-error',
     });

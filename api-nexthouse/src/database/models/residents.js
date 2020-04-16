@@ -8,6 +8,8 @@
  * @property {string} cpf
  * @property {string} email
  * @property {string} birthday 
+ * @property {bool} accountable
+ * @property {int} apartment_id
 */
 
 module.exports = (sequelize, DataTypes) => {
@@ -16,10 +18,15 @@ module.exports = (sequelize, DataTypes) => {
     phone: DataTypes.STRING,
     cpf: DataTypes.STRING,
     email: DataTypes.STRING,
-    birthday: DataTypes.STRING
+    birthday: DataTypes.STRING,
+    accountable: DataTypes.BOOLEAN,
+    apartment_id: DataTypes.INTEGER
   }, {});
   Residents.associate = function(models) {
-    // associations can be defined here
+    Residents.hasMany(models.Apartments, {
+      foreignKey: 'apartment_id',
+      as: 'apartments'
+    });
   };
   return Residents;
 };

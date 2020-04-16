@@ -11,8 +11,8 @@ module.exports = {
       number: {
         type: Sequelize.INTEGER
       },
-      block: {
-        type: Sequelize.STRING
+      block_id: {
+        type: Sequelize.INTEGER
       },
       createdAt: {
         allowNull: false,

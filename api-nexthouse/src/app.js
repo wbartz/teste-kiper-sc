@@ -4,6 +4,8 @@ const cors = require('cors');
 const monitor = require('express-status-monitor');
 const swagger = require('express-swagger-generator');
 
+if(process.env.NODE_ENV !== 'test') require('dotenv').config();
+
 const app = express();
 const options = {
   swaggerDefinition: {

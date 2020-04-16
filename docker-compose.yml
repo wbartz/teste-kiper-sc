@@ -7,6 +7,7 @@ services:
       args:
         - DATABASE_URL=mysql://root:nexthouse@database/nexthouse
         - HASH_KEY=768d04fdd9caf9191aae594e5edd1bcefb60bfd847effa0995c8ec4ba67caced
+        - NODE_ENV=test
     working_dir: /app
     ports:
       - 3001:3001
