@@ -1,0 +1,33 @@
+version: '3'
+
+services:
+  web:
+    build:
+      context: ./api-nexthouse
+      args:
+        - DATABASE_URL=postgres://nexthouse:nexthouse@database/nexthouse
+        - HASH_KEY=768d04fdd9caf9191aae594e5edd1bcefb60bfd847effa0995c8ec4ba67caced
+    working_dir: /app
+    ports:
+      - 3001:3001
+    links:
+      - database
+    depends_on:
+      - database
+    networks:
+      - api
+  database:
+    image: postgres:10.4
+    restart: always
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_PASSWORD=nexthouse
+      - POSTGRES_DB=nexthouse
+      - POSTGRES_USER=nexthouse
+    networks:
+      - api
+networks:
+  api:
+    ipam:
+      driver: default
