@@ -5,11 +5,11 @@ const utils = require('../../utils');
 
 /**
  * @route GET /api/v1/residents/:apartment_id
- * @group residents - Listagem dos moradores
+ * @group residents - Listagem dos moradores por apartamento
  * @param {int} apartment_id.query.required - ID do apartamento
  * @returns {string} type - ex.: Success - error - warning
  * @returns {string} code
- * @returns {Residents.model} residents - Lista de moradores
+ * @returns {Array.<Residents>} residents - Lista de moradores
  */
 router.get('/residents/:apartment_id', async (req, res) => {
   try {
@@ -46,7 +46,7 @@ router.get('/residents/:apartment_id', async (req, res) => {
  */
 router.get('/', async (req, res) => {
   try {
-    const { full_name, phone, cpf, email, birthday, accountable, apartment_id } = req.body;
+    const { full_name, phone, cpf, email, birthday, apartment_id } = req.body;
 
     if (!full_name || !phone || !cpf || !email || !birthday || !apartment_id) {
       return res.status(200).json({
@@ -71,26 +71,25 @@ router.get('/', async (req, res) => {
 });
 
 /**
- * @route POST /api/v1/residents/:id
- * @group residents - Listagem dos moradores
+ * @route PUT /api/v1/residents/:id
+ * @group residents - Buscar um morador
  * @param {int} id.query.required - ID do morador
- * @param {string} full_name.query.required - Nome do morador
- * @param {string} phone.query.required - Telefone do morador
- * @param {string} cpf.query.required - CPF do morador
- * @param {string} email.query.required - E-mail do morador
- * @param {string} birthday.query.required - Data de nascimento do morador
+ * @param {string} full_name.query - Nome do morador
+ * @param {string} phone.query - Telefone do morador
+ * @param {string} cpf.query - CPF do morador
+ * @param {string} email.query - E-mail do morador
+ * @param {string} birthday.query - Data de nascimento do morador
  * @param {bool} accountable.query - Responsável pelo apartamento
- * @param {int} apartment_id.query.required - ID do apartamento
+ * @param {int} apartment_id.query - ID do apartamento
  * @returns {string} type - ex.: Success - error - warning
  * @returns {string} code
- * @returns {Residents.model} residents - Novo morador
+ * @returns {Residents.model} residents - Morador alterado
  */
-router.get('/:id', async (req, res) => {
+router.put('/:id', async (req, res) => {
   try {
-    const { full_name, phone, cpf, email, birthday, accountable, apartment_id } = req.body;
-    const {id} = req.params;
+    const { id } = req.params;
 
-    if (!full_name || !phone || !cpf || !email || !birthday || !apartment_id) {
+    if (!id) {
       return res.status(200).json({
         type: 'error',
         code: 'required-fields',
@@ -99,7 +98,7 @@ router.get('/:id', async (req, res) => {
 
     let resident = await service.getById(id);
 
-    if(!resident) {
+    if (!resident) {
       return res.status(200).json({
         type: 'error',
         code: 'resident-not-found',
@@ -116,7 +115,7 @@ router.get('/:id', async (req, res) => {
     utils.alert(`add-residents: ${error}`);
     return res.status(200).json({
       type: 'error',
-      code: 'add-residents-error',
+      code: 'edit-residents-error',
     });
   }
 });
@@ -148,4 +147,3 @@ router.get('/residents/:id', async (req, res) => {
 });
 
 module.exports = router;
-

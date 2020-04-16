@@ -4,7 +4,7 @@ const cors = require('cors');
 const monitor = require('express-status-monitor');
 const swagger = require('express-swagger-generator');
 
-if(process.env.NODE_ENV !== 'test') require('dotenv').config();
+if (process.env.NODE_ENV !== 'test') require('dotenv').config();
 
 const app = express();
 const options = {
@@ -38,5 +38,7 @@ app.use((_, req, next) => {
 
 // routes
 app.use('/api/v1', require('./routes/users'));
+app.use('/api/v1/residents', require('./routes/residents'));
+app.use('/api/v1/apartments', require('./routes/apartments'));
 
 module.exports = app;
