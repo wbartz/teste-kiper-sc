@@ -9,7 +9,7 @@
     "test": "mocha test --exit --timeout 10000",
     "coverage": "nyc mocha --timeout 10000",
     "db:migrate": "sequelize db:migrate",
-    "db:seed": "sequelize db:seed",
+    "db:seed": "sequelize db:seed:all",
     "dev": "npm run db:migrate && npm run db:seed && npm start"
   },
   "license": "ISC",
