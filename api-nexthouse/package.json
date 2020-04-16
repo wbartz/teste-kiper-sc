@@ -1,0 +1,51 @@
+{
+  "name": "api-nexthouse",
+  "version": "1.0.0",
+  "description": "Teste técnico Kiper",
+  "main": "index.js",
+  "author": "William Bartz <williamf.brtz@gmail.com>",
+  "scripts": {
+    "start": "nodemon ./bin/www",
+    "test": "mocha test --exit --timeout 10000",
+    "coverage": "nyc mocha --timeout 10000",
+    "db:migrate": "sequelize db:migrate",
+    "db:seed": "sequelize db:seed",
+    "dev": "npm run db:migrate && npm run db:seed && npm start"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-status-monitor": "^1.2.11",
+    "express-swagger-generator": "^1.1.17",
+    "helmet": "^3.22.0",
+    "jsonwebtoken": "^8.5.1",
+    "pg": "^8.0.2",
+    "pg-hstore": "^2.3.3",
+    "prettier": "^2.0.4",
+    "sequelize": "^5.21.6",
+    "sequelize-cli": "^5.5.1",
+    "winston": "^3.2.1"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "chai-http": "^4.3.0",
+    "chai-subset": "^1.6.0",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-base": "^14.1.0",
+    "eslint-config-prettier": "^6.10.1",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-prettier": "^3.1.3",
+    "mocha": "^7.1.1",
+    "nodemon": "^2.0.3",
+    "nyc": "^15.0.1"
+  },
+  "nyc": {
+    "exclude": [
+      "src/config/**",
+      "src/utils/**",
+      "test/**"
+    ]
+  }
+}
