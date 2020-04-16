@@ -16,6 +16,7 @@ module.exports = {
         apartment_id,
       },
     }),
+  getById: async (id) => await Residents.findOne({ id }),
   add: async (resident) => await Residents.create(resident),
   update: async (id, resident) =>
     await Residents.update(resident, {

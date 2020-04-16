@@ -1,6 +1,5 @@
 const express = require('express');
 const router = express.Router();
-const { Residents } = require('../../database/models');
 const service = require('../../services/residents');
 const utils = require('../../utils');
 
@@ -50,7 +49,7 @@ router.get('/', async (req, res) => {
     const { full_name, phone, cpf, email, birthday, accountable, apartment_id } = req.body;
 
     if (!full_name || !phone || !cpf || !email || !birthday || !apartment_id) {
-      return res.status(401).json({
+      return res.status(200).json({
         type: 'error',
         code: 'required-fields',
       });
@@ -71,4 +70,82 @@ router.get('/', async (req, res) => {
   }
 });
 
+/**
+ * @route POST /api/v1/residents/:id
+ * @group residents - Listagem dos moradores
+ * @param {int} id.query.required - ID do morador
+ * @param {string} full_name.query.required - Nome do morador
+ * @param {string} phone.query.required - Telefone do morador
+ * @param {string} cpf.query.required - CPF do morador
+ * @param {string} email.query.required - E-mail do morador
+ * @param {string} birthday.query.required - Data de nascimento do morador
+ * @param {bool} accountable.query - Responsável pelo apartamento
+ * @param {int} apartment_id.query.required - ID do apartamento
+ * @returns {string} type - ex.: Success - error - warning
+ * @returns {string} code
+ * @returns {Residents.model} residents - Novo morador
+ */
+router.get('/:id', async (req, res) => {
+  try {
+    const { full_name, phone, cpf, email, birthday, accountable, apartment_id } = req.body;
+    const {id} = req.params;
+
+    if (!full_name || !phone || !cpf || !email || !birthday || !apartment_id) {
+      return res.status(200).json({
+        type: 'error',
+        code: 'required-fields',
+      });
+    }
+
+    let resident = await service.getById(id);
+
+    if(!resident) {
+      return res.status(200).json({
+        type: 'error',
+        code: 'resident-not-found',
+      });
+    }
+
+    resident = await service.update(id, req.body);
+
+    return res.status(201).json({
+      type: 'success',
+      resident,
+    });
+  } catch (error) {
+    utils.alert(`add-residents: ${error}`);
+    return res.status(200).json({
+      type: 'error',
+      code: 'add-residents-error',
+    });
+  }
+});
+
+/**
+ * @route DELETE /api/v1/residents/:id
+ * @group residents - Listagem dos moradores
+ * @param {int} id.query.required - ID do morador
+ * @returns {string} type - ex.: Success - error - warning
+ * @returns {string} code
+ */
+router.get('/residents/:id', async (req, res) => {
+  try {
+    const { id } = req.params;
+
+    await service.delete(id);
+
+    return res.status(200).json({
+      type: 'success',
+      code: 'deleted',
+    });
+  } catch (error) {
+    utils.alert(`list-residents: ${error}`);
+    return res.status(200).json({
+      type: 'error',
+      code: 'delete-residents-error',
+    });
+  }
+});
+
 module.exports = router;
+
