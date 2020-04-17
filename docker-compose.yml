@@ -3,6 +3,17 @@ version: '3'
 services:
   web:
     build:
+      context: ./nexthouse
+      args:
+        - REACT_APP_API=http://api:3001/api/v1
+    ports:
+      - 3000:3000
+    links:
+      - api
+    networks:
+      - api
+  api:
+    build:
       context: ./api-nexthouse
       args:
         - DATABASE_URL=mysql://root:nexthouse@database/nexthouse
@@ -13,10 +24,9 @@ services:
       - 3001:3001
     links:
       - database
-    depends_on:
-      - database
     networks:
       - api
+      - db
   database:
     image: mysql
     restart: always
@@ -26,8 +36,11 @@ services:
       - MYSQL_ROOT_PASSWORD=nexthouse
       - MYSQL_DATABASE=nexthouse
     networks:
-      - api
+      - db
 networks:
   api:
+    ipam:
+      driver: default
+  db:
     ipam:
       driver: default

@@ -165,6 +165,12 @@ router.delete('/:id', async (req, res) => {
       type: 'success',
       code: 'deleted',
     });
+  } catch (error) {
+    utils.alert(`delete-apartment: ${error}`);
+    return res.status(200).json({
+      type: 'error',
+      code: 'delete-apartment-error',
+    });
   }
 });
 
