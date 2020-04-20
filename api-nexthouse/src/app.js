@@ -2,11 +2,29 @@ const express = require('express');
 const helmet = require('helmet');
 const cors = require('cors');
 const monitor = require('express-status-monitor');
-const swagger = require('express-swagger-generator');
+const bodyParser = require('body-parser');
 
 if (process.env.NODE_ENV !== 'test') require('dotenv').config();
 
 const app = express();
+
+app.use(helmet());
+app.use(monitor());
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+app.use(cors());
+app.use((_, req, next) => {
+  req.header('Access-Control-Allow-Origin', '*');
+  req.header('Access-Control-Allow-Headers', 'Origin, X-Request-With, Content-Type, Accept');
+  next();
+});
+
+// routes
+app.use('/api/v1', require('./routes/users'));
+app.use('/api/v1/residents', require('./routes/residents'));
+app.use('/api/v1/apartments', require('./routes/apartments'));
+
+const swagger = require('express-swagger-generator')(app);
 const options = {
   swaggerDefinition: {
     info: {
@@ -24,21 +42,5 @@ const options = {
 };
 
 swagger(options);
-
-app.use(helmet());
-app.use(monitor());
-app.use(express.urlencoded({ extended: true }));
-app.use(express.json());
-app.use(cors());
-app.use((_, req, next) => {
-  req.header('Access-Control-Allow-Origin', '*');
-  req.header('Access-Control-Allow-Headers', 'Origin, X-Request-With, Content-Types, Accept');
-  next();
-});
-
-// routes
-app.use('/api/v1', require('./routes/users'));
-app.use('/api/v1/residents', require('./routes/residents'));
-app.use('/api/v1/apartments', require('./routes/apartments'));
 
 module.exports = app;

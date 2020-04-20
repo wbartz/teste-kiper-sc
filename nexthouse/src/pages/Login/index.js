@@ -1,17 +1,21 @@
 import PropTypes from 'prop-types';
 import React, { useContext, useState } from 'react';
 import TextField from '../../components/TextField';
+import { Redirect } from 'react-router-dom';
 import { AppContext } from '../../containers/StoreProvider';
+import { isLogged } from '../../helpers';
 import './index.scss';
 
 const Login = ({ signIn, history, isLoading }) => {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+  const [username, setUsername] = useState('admin@nexthouse.com');
+  const [password, setPassword] = useState('nexthouse');
 
   const onSuccess = () => history.push('/dashboard');
   const handleSignIn = () => {
     signIn(username, password, onSuccess);
   };
+
+  if (isLogged()) return <Redirect to="/dashboard" />;
 
   return (
     <form autoComplete="off">

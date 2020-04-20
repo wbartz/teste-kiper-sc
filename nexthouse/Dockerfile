@@ -14,8 +14,5 @@ EXPOSE 3000
 
 RUN npm install -g serve
 
-ARG REACT_APP_API
-ENV REACT_APP_API ${REACT_APP_API}
-
 COPY --from=builder /app/build .
 CMD ["serve", "-p", "3000", "-s", "."]

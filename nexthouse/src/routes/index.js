@@ -7,24 +7,24 @@ import {
   Switch,
 } from 'react-router-dom';
 import RouterBackground from '../containers/RouterBackground';
-import AuthProvider from '../containers/AuthProvider';
+import PrivateRoute from './PrivateRoute';
 
 const Dashboard = React.lazy(() => import('../pages/Dashboard'));
 const NotFound = React.lazy(() => import('../pages/NotFound'));
+const Login = React.lazy(() => import('../pages/Login'));
 
 const Routes = (props) => (
   <Router>
-    <AuthProvider {...props}>
-      <RouterBackground {...props}>
-        <React.Suspense fallback={<Loader loading fullPage text="" />}>
-          <Switch>
-            <Route exact path="/" render={() => <Redirect to="/dashboard" />} />
-            <Route exact path="/dashboard" component={Dashboard} />
-            <Route component={NotFound} />
-          </Switch>
-        </React.Suspense>
-      </RouterBackground>
-    </AuthProvider>
+    <RouterBackground {...props}>
+      <React.Suspense fallback={<Loader loading fullPage text="" />}>
+        <Switch>
+          <Route exact path="/" render={() => <Redirect to="/dashboard" />} />
+          <Route exact path="/login" component={Login} />
+          <PrivateRoute exact path="/dashboard" component={Dashboard} />
+          <Route component={NotFound} />
+        </Switch>
+      </React.Suspense>
+    </RouterBackground>
   </Router>
 );
 

@@ -33,6 +33,7 @@ export default async (endpoint, method = 'get', body = {}) => {
     const options = {
       method,
       timeout: REACT_APP_TIMEOUT,
+      credentials: 'same-origin',
       headers: {
         'Content-Type': 'application/json',
         Accept: 'application/json',

@@ -5,6 +5,7 @@ import Navbar from '../../components/Navbar';
 import { AppContext } from '../StoreProvider';
 import Alert from '../../components/Alert';
 import { Helmet } from 'react-helmet';
+import { isLogged } from '../../helpers';
 
 const RouterBackground = ({ title, children }) => {
   return (
@@ -13,7 +14,7 @@ const RouterBackground = ({ title, children }) => {
         <title>{title}</title>
       </Helmet>
 
-      <Navbar />
+      {isLogged() && <Navbar />}
 
       <div className="container">{children}</div>
 
