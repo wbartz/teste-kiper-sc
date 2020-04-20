@@ -1,0 +1,64 @@
+@import 'variables';
+@import 'typograph';
+
+html {
+  font-size: 16px;
+}
+
+body {
+  margin: 0;
+
+  .react-overlay-loader-spinner:before {
+    width: 100px;
+    height: 100px;
+  }
+
+  .container {
+    align-items: center;
+  }
+
+  .btn.primary {
+    background-color: $color-primary;
+  }
+
+  .btn.primary.outlined {
+    background-color: #fff !important;
+    box-shadow: none;
+    border-width: 1px;
+    border-style: solid;
+    border-color: $color-primary;
+    color: $color-primary;
+  }
+
+  .btn.primary.outlined:focus,
+  .btn.primary.outlined:hover {
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14);
+  }
+
+  select:disabled,
+  input:disabled,
+  textarea:disabled {
+    background-color: #f2f2f2;
+  }
+
+  button.btn-link {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    color: #fff;
+  }
+
+  input:not([type]), input[type=text]:not(.browser-default), input[type=password]:not(.browser-default), input[type=email]:not(.browser-default), input[type=url]:not(.browser-default), input[type=time]:not(.browser-default), input[type=date]:not(.browser-default), input[type=datetime]:not(.browser-default), input[type=datetime-local]:not(.browser-default), input[type=tel]:not(.browser-default), input[type=number]:not(.browser-default), input[type=search]:not(.browser-default), textarea.materialize-textarea {
+    box-sizing: border-box;
+  }
+}
+
+.container {
+  @media only screen and (min-width: $grid-l) {
+    min-width: 960px;
+  }
+
+  @media only screen and (min-width: $grid-xl) {
+    min-width: 1200px;
+  }
+}
