@@ -1,15 +1,15 @@
 import { shallow } from 'enzyme';
 import React from 'react';
-import RouterBackground from '.';
+import Loading from '.';
 
-describe('RouterBackground', () => {
+describe('Loading', () => {
   let wrapper;
   const props = {
-    children: () => <>Hellow World!</>,
+    isLoading: false,
   };
 
   beforeEach(() => {
-    wrapper = shallow(<RouterBackground {...props} />);
+    wrapper = shallow(<Loading {...props} />); // eslint-disable-line
   });
 
   it('render without crashing', () => {

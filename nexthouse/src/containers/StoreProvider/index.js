@@ -1,8 +1,8 @@
-import PropTypes from "prop-types";
-import React from "react";
-import appActions from "../../actions";
-import { useActions } from "../../helpers";
-import appReducers, { initialState as appInitialState } from "../../reducers";
+import PropTypes from 'prop-types';
+import React, { createContext, useReducer } from 'react';
+import appActions from '../../actions';
+import { useActions } from '../../helpers';
+import appReducers, { initialState as appInitialState } from '../../reducers';
 
 const CreateProviderValue = (reducer, initialState, actions) => {
   const [state, dispatch] = useReducer(reducer, initialState);
@@ -24,7 +24,11 @@ const StoreProvider = ({ children }) => {
 };
 
 StoreProvider.propTypes = {
-  children: PropTypes.node.isRequired,
+  children: PropTypes.node,
+};
+
+StoreProvider.defaultProps = {
+  children: null,
 };
 
 export default StoreProvider;

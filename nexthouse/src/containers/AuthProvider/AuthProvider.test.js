@@ -1,15 +1,15 @@
 import { shallow } from 'enzyme';
 import React from 'react';
-import RouterBackground from '.';
+import AuthProvider from '.';
 
-describe('RouterBackground', () => {
+describe('AuthProvider', () => {
   let wrapper;
   const props = {
     children: () => <>Hellow World!</>,
   };
 
   beforeEach(() => {
-    wrapper = shallow(<RouterBackground {...props} />);
+    wrapper = shallow(<AuthProvider {...props} />);
   });
 
   it('render without crashing', () => {

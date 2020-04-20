@@ -1,4 +1,4 @@
-import onlyNumber from './only-numbers';
+import onlyNumber from './onlyNumbers';
 
 const isLastChar = (index, str) => index === str.length - 1;
 

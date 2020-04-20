@@ -1,0 +1,57 @@
+@import '../../styles/variables';
+
+.modal-overlay {
+  display: none;
+}
+
+.modal-overlay.active {
+  z-index: 2;
+  display: block;
+  opacity: 0.5;
+  background-color: $color-black;
+  position: absolute;
+}
+
+.modal-overlay.active + .modal {
+  position: absolute;
+  z-index: 3;
+  display: block;
+  opacity: 1;
+  top: 20%;
+  transform: scaleX(1) scaleY(1);
+
+  .modal-footer {
+    display: flex;
+    justify-content: center;
+
+    button {
+      background-color: $color-warning;
+      width: 224px;
+    }
+  }
+}
+
+.modal {
+  width: 400px;
+  padding: 20px;
+
+  .modal-content {
+    h4 {
+      text-align: center;
+      font-family: $font-family;
+      font-size: 45px;
+      font-weight: bold;
+      color: $color-warning;
+    }
+
+    p {
+      font-family: $font-family-alternative;
+      font-size: $h5-font-size;
+      line-height: 1.5;
+      letter-spacing: 0.15px;
+      text-align: center;
+      margin-top: 20px;
+      color: $color-black;
+    }
+  }
+}

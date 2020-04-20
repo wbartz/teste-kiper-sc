@@ -1,0 +1,34 @@
+@import '../../styles/variables';
+
+.input-field.col label {
+  left: 0 !important;
+}
+
+
+.input-field {
+  input:-internal-autofill-selected {
+    background-color: transparent !important;
+  }
+
+  input {
+    padding-left: 0;
+    padding-right: 30px !important;
+  }
+
+  label.active::first-letter {
+    text-transform: uppercase;
+  }
+}
+
+.input-field.input-size__sm {
+  width: 200px;
+}
+
+.input-field.input-size__md {
+  width: 350px;
+}
+
+.input-field.input-size__lg {
+  width: 650px;
+}
+

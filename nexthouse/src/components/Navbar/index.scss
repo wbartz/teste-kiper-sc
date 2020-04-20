@@ -1,0 +1,111 @@
+@import '../../styles/variables';
+
+$nav-height: 64px;
+
+.nossa-adm-nav {
+  background-color: $color-primary;
+  height: $nav-height;
+
+  button.btn-link {
+    transition: background-color .3s;
+    cursor: pointer;
+  }
+
+  .brand-logo {
+    height: $nav-height;
+
+    img {
+      filter: brightness(0) invert(1);
+      height: $nav-height;
+      margin: auto 20px;
+    }
+  }
+  
+  .nav-routes-btn {}
+
+  .nav-user-btn {
+    .material-icons {
+      font-size: 40px;
+      float: left;
+      max-width: 115px;
+
+      &.icon-arrow-down, &.icon-arrow-up {
+        font-size: 24px;
+        padding-top: 2px;
+      }
+
+      &.icon-arrow-down {
+        visibility: visible;
+        opacity: 1;
+        width: auto;
+        transition: $transition-visibility;
+      }
+
+      &.icon-arrow-up {
+        width: 0;
+        visibility: hidden;
+        opacity: 0;
+        transition: $transition-visibility;
+      }
+    }
+
+    &.active {
+      .material-icons {
+        &.icon-arrow-down {
+          width: 0;
+          visibility: hidden;
+          opacity: 0;
+          transition: $transition-visibility;
+        }
+
+        &.icon-arrow-up {
+          width: auto;
+          visibility: visible;
+          opacity: 1;
+          transition: $transition-visibility;
+        }
+      }
+    }
+  }
+
+  .nav-routes-open, .nav-user-open {
+    transition: background-color .3s;
+
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.1);
+      transition: background-color .3s;
+    }
+  }
+
+  .nav-routes-open {
+    border-right: 1px solid $color-light-gray;
+    float: left;
+    max-width: 91px;
+    padding: 0 25px;
+    
+    .material-icons {
+      font-size: 40px;
+    }
+  }
+  .nav-user-open {
+    border-left: 1px solid $color-light-gray;
+    float: right;
+    padding: 0 25px;    
+  }
+
+  .dropdown-content li button {
+    color: rgba(0, 0, 0, 0.38);
+  }
+
+  .dropdown-content li {
+    &:first-child {
+      button, a, i {
+        color: $color-primary !important;
+      }
+    }
+
+    button, a, i {
+      color: rgba(0, 0, 0, 0.38);
+    };
+  }
+}
