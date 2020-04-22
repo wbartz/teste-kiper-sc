@@ -2,7 +2,8 @@
 module.exports = {
   development: {
     url: process.env.DATABASE_URL,
-    dialect: 'mysql'
+    dialect: 'mysql',
+    logging: false
   },
   test: {
     url: process.env.DATABASE_URL,

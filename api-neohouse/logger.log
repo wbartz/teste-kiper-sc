@@ -5,3 +5,30 @@
 [33mwarn[39m: [ERROR: 2020-04-16T13:51:04.221Z] - authentication - TypeError: Key must be a buffer
 [33mwarn[39m: [ERROR: 2020-04-16T13:51:35.361Z] - authentication - TypeError: Key must be a buffer
 [33mwarn[39m: [ERROR: 2020-04-22T15:01:00.850Z] - list-dashboard: TypeError: sequelize.query is not a function
+[33mwarn[39m: [ERROR: 2020-04-22T20:40:48.744Z] - list-apartments: SequelizeDatabaseError: Unknown column 'apartment_id' in 'field list'
+[33mwarn[39m: [ERROR: 2020-04-22T20:40:48.792Z] - list-apartments: SequelizeDatabaseError: Unknown column 'apartment_id' in 'field list'
+[33mwarn[39m: [ERROR: 2020-04-22T20:42:18.752Z] - list-apartments: SequelizeDatabaseError: Unknown column 'apartment_id' in 'field list'
+[33mwarn[39m: [ERROR: 2020-04-22T20:42:18.816Z] - list-apartments: SequelizeDatabaseError: Unknown column 'apartment_id' in 'field list'
+[33mwarn[39m: [ERROR: 2020-04-22T20:42:52.300Z] - list-apartments: SequelizeDatabaseError: Unknown column 'apartment_id' in 'field list'
+[33mwarn[39m: [ERROR: 2020-04-22T20:42:52.339Z] - list-apartments: SequelizeDatabaseError: Unknown column 'apartment_id' in 'field list'
+[33mwarn[39m: [ERROR: 2020-04-22T20:44:48.992Z] - list-apartments: SequelizeDatabaseError: Unknown column 'apartment_id' in 'field list'
+[33mwarn[39m: [ERROR: 2020-04-22T20:44:49.032Z] - list-apartments: SequelizeDatabaseError: Unknown column 'apartment_id' in 'field list'
+[33mwarn[39m: [ERROR: 2020-04-22T20:47:18.660Z] - list-apartments: SequelizeDatabaseError: Unknown column 'apartment_id' in 'field list'
+[33mwarn[39m: [ERROR: 2020-04-22T20:47:18.718Z] - list-apartments: SequelizeDatabaseError: Unknown column 'apartment_id' in 'field list'
+[33mwarn[39m: [ERROR: 2020-04-22T20:57:24.750Z] - list-apartments: SequelizeDatabaseError: Unknown column 'ResidentId' in 'field list'
+[33mwarn[39m: [ERROR: 2020-04-22T20:57:24.785Z] - list-apartments: SequelizeDatabaseError: Unknown column 'ResidentId' in 'field list'
+[33mwarn[39m: [ERROR: 2020-04-22T21:24:13.498Z] - add-apartment: ReferenceError: apartament is not defined
+[33mwarn[39m: [ERROR: 2020-04-22T21:25:05.099Z] - add-apartment: ReferenceError: apartament is not defined
+[33mwarn[39m: [ERROR: 2020-04-22T21:41:47.141Z] - delete-apartment: TypeError: type.indexOf is not a function
+[33mwarn[39m: [ERROR: 2020-04-22T21:45:17.516Z] - delete-apartment: TypeError: type.indexOf is not a function
+[33mwarn[39m: [ERROR: 2020-04-22T21:48:19.020Z] - delete-apartment: TypeError: type.indexOf is not a function
+[33mwarn[39m: [ERROR: 2020-04-22T21:49:24.296Z] - delete-apartment: TypeError: Cannot read property 'destroy' of null
+[33mwarn[39m: [ERROR: 2020-04-22T21:49:45.369Z] - delete-apartment: TypeError: Cannot read property 'destroy' of null
+[33mwarn[39m: [ERROR: 2020-04-22T21:50:14.988Z] - delete-apartment: TypeError: Apartments.findOne(...).on is not a function
+[33mwarn[39m: [ERROR: 2020-04-22T21:50:29.799Z] - delete-apartment: TypeError: Apartments.find is not a function
+[33mwarn[39m: [ERROR: 2020-04-22T21:51:04.909Z] - delete-apartment: TypeError: type.indexOf is not a function
+[33mwarn[39m: [ERROR: 2020-04-22T21:52:26.376Z] - delete-apartment: TypeError: type.indexOf is not a function
+[33mwarn[39m: [ERROR: 2020-04-22T21:58:42.613Z] - add-apartment: SequelizeUniqueConstraintError: Validation error
+[33mwarn[39m: [ERROR: 2020-04-22T21:59:15.198Z] - add-apartment: SequelizeUniqueConstraintError: Validation error
+[33mwarn[39m: [ERROR: 2020-04-22T22:00:23.523Z] - add-apartment: SequelizeUniqueConstraintError: Validation error
+[33mwarn[39m: [ERROR: 2020-04-22T22:02:08.727Z] - add-apartment: SequelizeUniqueConstraintError: Validation error

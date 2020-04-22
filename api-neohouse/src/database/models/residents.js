@@ -22,11 +22,5 @@ module.exports = (sequelize, DataTypes) => {
     accountable: DataTypes.BOOLEAN,
     apartment_id: DataTypes.INTEGER
   }, {});
-  Residents.associate = function(models) {
-    Residents.hasMany(models.Apartments, {
-      foreignKey: 'apartment_id',
-      as: 'apartments'
-    });
-  };
   return Residents;
 };

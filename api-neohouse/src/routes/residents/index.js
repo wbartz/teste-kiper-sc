@@ -96,7 +96,7 @@ router.put('/:id', async (req, res) => {
       });
     }
 
-    let resident = await service.getById(id);
+    const resident = await service.getById(id);
 
     if (!resident) {
       return res.status(200).json({
@@ -105,11 +105,14 @@ router.put('/:id', async (req, res) => {
       });
     }
 
-    resident = await service.update(id, req.body);
+    await service.update(id, req.body);
 
     return res.status(201).json({
       type: 'success',
-      resident,
+      resident: {
+        id,
+        ...req.body,
+      },
     });
   } catch (error) {
     utils.alert(`add-residents: ${error}`);

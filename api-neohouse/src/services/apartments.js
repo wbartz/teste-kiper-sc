@@ -8,14 +8,25 @@ module.exports = {
         block_id,
       },
     }),
-  getById: async (id) => await Apartments.findOne({ id }),
-  add: async (apartment) => await Apartments.create(apartment),
-  update: async (id, apartment) =>
-    await Apartments.update(apartment, {
-      where: {
-        id,
-      },
+  getById: async (id) => await Apartments.findOne({ where: { id } }),
+  add: async (apartment) =>
+    await Apartments.create({
+      ...apartment,
+      createdAt: new Date(),
+      updatedAt: new Date(),
     }),
+  update: async (id, apartment) =>
+    await Apartments.update(
+      {
+        ...apartment,
+        updatedAt: new Date(),
+      },
+      {
+        where: {
+          id,
+        },
+      }
+    ),
   delete: async (id) =>
     await Apartments.destroy({
       where: {

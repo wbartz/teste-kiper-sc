@@ -8,15 +8,13 @@
  */
 
 module.exports = (sequelize, DataTypes) => {
-  const Apartments = sequelize.define('Apartments', {
-    number: DataTypes.INTEGER,
-    block_id: DataTypes.INTEGER
-  }, {});
-  Apartments.associate = function(models) {
-    Apartments.hasMany(models.Blocks, {
-      foreignKey: 'block_id',
-      as: 'blocks'
-    })
-  };
+  const Apartments = sequelize.define(
+    'Apartments',
+    {
+      number: DataTypes.INTEGER,
+      block_id: DataTypes.INTEGER,
+    },
+    {}
+  );
   return Apartments;
 };

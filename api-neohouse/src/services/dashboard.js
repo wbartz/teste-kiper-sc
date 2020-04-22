@@ -30,7 +30,7 @@ module.exports = {
       b.id
   `,
       {
-        logging: console.log,
+        logging: false,
         type: QueryTypes.SELECT,
       }
     ),

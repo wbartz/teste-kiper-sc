@@ -9,24 +9,30 @@ module.exports = {
         type: Sequelize.INTEGER,
       },
       full_name: {
+        allowNull: false,
         type: Sequelize.STRING,
       },
       phone: {
+        allowNull: false,
         type: Sequelize.STRING,
       },
       cpf: {
+        allowNull: false,
         type: Sequelize.STRING,
       },
       email: {
+        allowNull: false,
         type: Sequelize.STRING,
       },
       birthday: {
+        allowNull: false,
         type: Sequelize.STRING,
       },
       accountable: {
         type: Sequelize.BOOLEAN,
       },
       apartment_id: {
+        allowNull: false,
         type: Sequelize.INTEGER,
       },
       createdAt: {

@@ -119,7 +119,7 @@ router.put('/:id', async (req, res) => {
       });
     }
 
-    let apartment = await service.getById(id);
+    const apartment = await service.getById(id);
 
     if (!apartment) {
       return res.status(200).json({
@@ -128,11 +128,14 @@ router.put('/:id', async (req, res) => {
       });
     }
 
-    apartment = await service.update(id, req.body);
+    await service.update(id, req.body);
 
     return res.status(201).json({
       type: 'success',
-      apartament,
+      apartament: {
+        id,
+        ...req.body,
+      },
     });
   } catch (error) {
     utils.alert(`add-apartment: ${error}`);
@@ -159,9 +162,18 @@ router.delete('/:id', async (req, res) => {
         code: 'required-fields',
       });
 
+    const apartment = await service.getById(id);
+
+    if (!apartment) {
+      return res.status(200).json({
+        type: 'error',
+        code: 'apartment-not-found',
+      });
+    }
+
     await service.delete(id);
 
-    return res.status(200).type({
+    return res.status(200).json({
       type: 'success',
       code: 'deleted',
     });
