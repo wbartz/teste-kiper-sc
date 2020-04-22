@@ -23,6 +23,8 @@ app.use((_, req, next) => {
 app.use('/api/v1', require('./routes/users'));
 app.use('/api/v1/residents', require('./routes/residents'));
 app.use('/api/v1/apartments', require('./routes/apartments'));
+app.use('/api/v1/blocks', require('./routes/apartments'));
+app.use('/api/v1/dashboard', require('./routes/dashboard'));
 
 const swagger = require('express-swagger-generator')(app);
 const options = {

@@ -1,3 +1,4 @@
+import {getMessage} from '../helpers'
 import {
   EMAIL_SIGNIN_FAILURE,
   EMAIL_SIGNIN_REQUEST,
@@ -28,7 +29,7 @@ export default (state = initialState, { type, ...action }) => {
       return {
         ...state,
         isLoading: false,
-        error: action.error,
+        error: getMessage(action.error.code),
       };
     case EMAIL_SIGNIN_SUCCESS:
       return {

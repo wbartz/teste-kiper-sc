@@ -3,7 +3,11 @@ import React from 'react';
 import Dashboard from '.';
 
 describe('Dashboard', () => {
+  const props = {
+    getDashboard: jest.fn()
+  }
+
   it('render without crashing', () => {
-    expect(shallow(<Dashboard />)).toMatchSnapshot();
+    expect(shallow(<Dashboard {...props} />)).toMatchSnapshot();
   });
 });

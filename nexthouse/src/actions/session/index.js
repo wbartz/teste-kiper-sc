@@ -29,10 +29,10 @@ export const signIn = (username, password, onSuccess) => async (dispatch) => {
       return onSuccess();
     })
     .catch((error) => {
-      LOG(EMAIL_SIGNIN_FAILURE, error.message);
+      LOG(EMAIL_SIGNIN_FAILURE, error);
       dispatch({
         type: EMAIL_SIGNIN_FAILURE,
-        error: error.message,
+        error,
       });
     });
 };

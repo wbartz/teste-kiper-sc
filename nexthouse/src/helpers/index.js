@@ -6,6 +6,7 @@ import useActions from './useActions';
 import fetchAPI from './fetchApi';
 import isLogged from './isLogged';
 import LOG from './debug';
+import getMessage from './getMessage';
 
 export {
   LOG,
@@ -18,4 +19,5 @@ export {
   removeCookie,
   onlyNumbers,
   useActions,
+  getMessage,
 };

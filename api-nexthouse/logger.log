@@ -4,3 +4,4 @@
 [33mwarn[39m: [ERROR: 2020-04-16T13:50:27.079Z] - authentication - TypeError: Key must be a buffer
 [33mwarn[39m: [ERROR: 2020-04-16T13:51:04.221Z] - authentication - TypeError: Key must be a buffer
 [33mwarn[39m: [ERROR: 2020-04-16T13:51:35.361Z] - authentication - TypeError: Key must be a buffer
+[33mwarn[39m: [ERROR: 2020-04-22T15:01:00.850Z] - list-dashboard: TypeError: sequelize.query is not a function
