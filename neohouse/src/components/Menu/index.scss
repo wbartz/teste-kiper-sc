@@ -1,0 +1,106 @@
+@import '../../styles/variables';
+
+$dropdown-width: 200px;
+$dropdown-item-height: 64px;
+
+.nav-user-menu {
+  left: auto !important;
+  right: 15px !important;
+}
+
+.dropdown-content {
+  display: block;
+  opacity: 0;
+  transition: $transition-visibility;
+  visibility: hidden;
+  width: $dropdown-width;
+
+  .mdc-list-item {
+    text-transform: uppercase;
+    font-size: $h6-font-size;
+    padding-left: 6px;
+    height: $dropdown-item-height;
+    display: flex;
+    align-items: center;
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    border-bottom-color: rgba(0, 0, 0, 0.12);
+    background-color: #fff;
+
+    a.text {
+      color: $color-primary;
+      font-size: $font-size-base;
+      font-weight: bold;
+    }
+
+    .link.btn-link {
+      height: $dropdown-item-height;
+      line-height: $dropdown-item-height;
+      margin: 0;
+      padding-bottom: 0;
+      padding-top: 0;
+      text-align: left;
+      width: 100%;
+    }
+    
+  }
+
+  .mdc-list-item.mdc-close {
+    a,
+    button {
+      font-size: $h6-font-size;
+      display: flex;
+      align-items: center;
+      width: 100%;
+      text-decoration: none;
+      color: $color-primary;
+    }
+  }
+
+  .mdc-list-item:hover {
+    a,
+    button,
+    i {
+      color: $color-primary;
+      background: none;
+    }
+  }
+
+  li {
+    button {
+      font-size: $font-size-regular;
+      color: #26a69a;
+      display: block;
+      line-height: 22px;
+      padding: 14px 16px;
+
+      > i {
+        height: inherit;
+        line-height: inherit;
+        float: left;
+        margin: 0 24px 0 0;
+        width: 24px;   
+      }
+    }
+  }
+
+  span {
+    font-family: $font-family-alternative;
+    font-weight: 500;
+    line-height: 1.33;
+    letter-spacing: 2px;
+    margin-left: 5px;
+  }
+
+  &.active {
+    display: block;
+    height: auto;
+    opacity: 1;
+    transform-origin: 0px 0px;
+    transform: scaleX(1) scaleY(1);
+    transition: $transition-visibility;
+    visibility: visible;
+    width: $dropdown-width;
+    top: 55px !important;
+  }
+}

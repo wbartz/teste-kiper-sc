@@ -1,0 +1,47 @@
+@import '../../styles/variables';
+
+.mdc-menu.nav-user-menu {
+  top: 20px;
+  right: 13px;
+
+  .mdc-list {
+    width: 160px;
+
+    .mdc-list-item {
+      text-transform: uppercase;
+      color: rgba(0, 0, 0, 0.38);
+      font-size: $h6-font-size;
+      cursor: pointer;
+
+      .mdc-list-item__user {
+        font-family: $font-family-alternative;
+        font-size: $h6-font-size;
+        color: $color-primary;
+        font-weight: 500;
+        line-height: 1.71;
+        letter-spacing: 0.1px;
+      }
+
+      span {
+        font-family: $font-family-alternative;
+        font-weight: 500;
+        line-height: 1.33;
+        letter-spacing: 2px;
+        margin-left: 5px;
+
+        a {
+          text-decoration: none;
+          color: rgba(0, 0, 0, 0.38);
+        }
+      }
+    }
+    .mdc-list-item:hover {
+      &:hover {
+        a {
+          color: $color-primary;
+        }
+      }
+      color: $color-primary;
+    }
+  }
+}
