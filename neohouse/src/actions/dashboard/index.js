@@ -9,9 +9,18 @@ export const getDashboard = () => async (dispatch) => {
 
   await fetchAPI('/dashboard')
     .then(({ data }) => {
+      if (data.type === 'success') {
+        dispatch({
+          type: DASHBOARD_SUCCESS,
+          dashboard: data.dashboard,
+        });
+        return;
+      }
+
+      LOG(DASHBOARD_FAILURE, data.code);
       dispatch({
-        type: DASHBOARD_SUCCESS,
-        dashboard: data.dashboard,
+        type: DASHBOARD_FAILURE,
+        error: data.code,
       });
     })
     .catch((error) => {

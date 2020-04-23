@@ -19,15 +19,21 @@ export const signIn = (username, password, onSuccess) => async (dispatch) => {
   dispatch({ type: EMAIL_SIGNIN_REQUEST });
 
   await fetchAPI('/login', 'post', { username, password })
-    .then((result) => {
-      const { data } = result;
-      setCookie('token', data.token);
-      setCookie('user', data.user);
+    .then(({ data }) => {
+      if (data.type === 'success') {
+        setCookie('token', data.token);
+        setCookie('user', data.user);
+        dispatch({
+          type: EMAIL_SIGNIN_SUCCESS,
+          token: data.token,
+        });
+        return onSuccess();
+      }
+      LOG(EMAIL_SIGNIN_FAILURE, data.code);
       dispatch({
-        type: EMAIL_SIGNIN_SUCCESS,
-        token: data.token,
+        type: EMAIL_SIGNIN_FAILURE,
+        error: data.code,
       });
-      return onSuccess();
     })
     .catch((error) => {
       LOG(EMAIL_SIGNIN_FAILURE, error);

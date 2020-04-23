@@ -1,0 +1,36 @@
+@import '../../styles/variables';
+
+.breadcrumb {
+  margin-top: 30px;
+  margin-bottom: 30px;
+  display: flex;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  width: 100%;
+  padding: 10px;
+  border-color: $color-lighter-gray;
+
+  span {
+    font-style: italic;
+    color: $color-gray;
+    margin-right: 10px;
+
+    a {
+      cursor: pointer;
+      color: $color-secondary;
+      font-size: $h5-font-size;
+    }
+
+    a::after {
+      font-size: $h4-font-size;
+      font-style: italic;
+      font-weight: bold;
+      content: " | ";
+    }
+  }
+
+  span.active {
+    color: $color-alternative;
+    
+  }
+}

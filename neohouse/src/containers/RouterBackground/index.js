@@ -4,19 +4,27 @@ import Loading from '../../components/Loading';
 import Navbar from '../../components/Navbar';
 import { AppContext } from '../StoreProvider';
 import Alert from '../../components/Alert';
+import Breadcrumb from '../../components/Breadcrumb';
 import { Helmet } from 'react-helmet';
 import { isLogged } from '../../helpers';
+import { withRouter } from 'react-router-dom';
 
-const RouterBackground = ({ title, children }) => {
+const RouterBackground = ({ children, location }) => {
+  let currentPage = location.pathname.split('/')[1].replace('/', '');
+  currentPage = currentPage.slice(0, 1).toUpperCase() + currentPage.slice(1);
+
   return (
     <>
       <Helmet>
-        <title>{title}</title>
+        <title>NextHouse - {currentPage}</title>
       </Helmet>
 
       {isLogged() && <Navbar />}
 
-      <div className="container">{children}</div>
+      <div className="container">
+        {isLogged() && <Breadcrumb />}
+        {children}
+      </div>
 
       <Loading />
       <Alert />
@@ -26,13 +34,9 @@ const RouterBackground = ({ title, children }) => {
 
 RouterBackground.propTypes = {
   children: PropTypes.node.isRequired,
-  title: PropTypes.string,
+  location: PropTypes.oneOfType([PropTypes.object, PropTypes.array]).isRequired,
 };
 
-RouterBackground.defaultProps = {
-  title: 'neohouse',
-};
-
-export default (props) => (
+export default withRouter((props) => (
   <RouterBackground {...useContext(AppContext)} {...props} />
-);
+));

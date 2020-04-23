@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React, { createContext, useReducer } from 'react';
 import appActions from '../../actions';
-import { useActions } from '../../helpers';
+import { useActions, LOG } from '../../helpers';
 import appReducers, { initialState as appInitialState } from '../../reducers';
 
 const CreateProviderValue = (reducer, initialState, actions) => {
@@ -14,6 +14,8 @@ const CreateProviderValue = (reducer, initialState, actions) => {
 export const AppContext = createContext();
 
 const StoreProvider = ({ children }) => {
+  LOG('Context start');
+
   return (
     <AppContext.Provider
       value={CreateProviderValue(appReducers, appInitialState, appActions)}

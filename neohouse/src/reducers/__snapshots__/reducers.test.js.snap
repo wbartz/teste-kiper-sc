@@ -1,7 +1,18 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Dashboard actions faultback to a initial state 1`] = `
+Object {
+  "dashboard": Array [],
+  "error": null,
+  "isLoading": false,
+  "token": null,
+  "user": null,
+}
+`;
+
 exports[`Session Actions faultback to a initial state 1`] = `
 Object {
+  "dashboard": Array [],
   "error": null,
   "isLoading": false,
   "token": null,
@@ -11,6 +22,7 @@ Object {
 
 exports[`Status Actions faultback to a initial state 1`] = `
 Object {
+  "dashboard": Array [],
   "error": null,
   "isLoading": false,
   "token": null,

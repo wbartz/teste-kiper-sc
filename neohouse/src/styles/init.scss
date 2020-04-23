@@ -1,12 +1,13 @@
 @import 'variables';
 @import 'typograph';
 
-html {
-  font-size: 16px;
-}
 
 body {
   margin: 0;
+
+  .page {
+    margin-top: 70px;
+  }
 
   .react-overlay-loader-spinner:before {
     width: 100px;

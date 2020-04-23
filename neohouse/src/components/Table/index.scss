@@ -1,0 +1,43 @@
+@import '../../styles/variables';
+
+
+table {
+  thead {
+    border-bottom: 1px solid $color-lighter-gray;
+
+    td {
+      font-size: $h5-font-size;
+      font-weight: bold;
+    }
+  }
+
+  tbody {
+    tr.no-results {
+      font-size: $h5-font-size;
+      font-style: italic;
+    }
+
+    .table-actions {
+      width: 100px;
+      display: flex;
+      text-align: right;
+      justify-content: space-between;
+
+      i {
+        cursor: pointer;
+      }
+
+      .view {
+        color: $color-secondary;
+      }
+
+      .edit {
+        color: $color-warning;
+      }
+
+      .remove {
+        color: $color-error;
+      }
+    }
+  }
+}

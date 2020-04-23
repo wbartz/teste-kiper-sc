@@ -2,19 +2,20 @@ import PropTypes from 'prop-types';
 import React, { useCallback, useContext } from 'react';
 import { AppContext } from '../../containers/StoreProvider';
 import './index.scss';
+import { LOG } from '../../helpers';
 
 export const AlertComponent = ({ title, message, error, clearErrors }) => {
   const handleClick = useCallback(() => {
     clearErrors();
   }, [clearErrors]);
-
+  LOG(error);
   return (
     <>
       <div className={`modal-overlay ${error ? 'active' : ''}`} />
       <div className="modal">
         <div className="modal-content">
           <h4>{title}</h4>
-          <p>{message}</p>
+          <p>{error || message}</p>
         </div>
         <div className="modal-footer">
           <button

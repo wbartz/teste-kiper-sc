@@ -5,7 +5,8 @@ import UserMenu from '.';
 describe('UserMenu', () => {
   let wrapper;
   const props = {
-    logout: jest.fn(),
+    signOut: jest.fn(),
+    onLogout: jest.fn(),
   };
 
   beforeEach(() => {

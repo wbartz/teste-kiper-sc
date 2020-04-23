@@ -1,0 +1,71 @@
+@import '../../styles/variables';
+
+.card {
+  border-radius: 4px;
+  width: 306px;
+  height: 238px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 12px 0px;
+  margin-bottom: 60px;
+
+  &:hover .card-header-edit {
+    visibility: visible;
+    transition: visibility 0s linear 300ms, opacity 300ms;
+  }
+
+  &:hover .card-header-image {
+    margin-top: -75px;
+  }
+
+  .card-header-edit {
+    cursor: pointer;
+    padding: 2.5rem 0rem 0rem !important;
+    visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 30px;
+    margin-bottom: 20px;
+
+    i {
+      color: $color-secondary !important;
+      font-size: 30px !important;
+    }
+  }
+
+  .card-header-image {
+    height: 137px;
+    margin-top: -50px;
+    border-radius: 5px;
+    position: absolute;
+    width: 92%;
+    transition: margin 0.3s linear;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.16),
+      0 2px 10px 0 rgba(0, 0, 0, 0.12);
+    background-color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  i.material-icons {
+    font-size: 60px;
+    color: $color-lighter-gray;
+  }
+
+  .title {
+    font-weight: bold;
+    font-size: 20px;
+    color: $color-primary;
+  }
+}
