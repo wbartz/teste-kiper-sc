@@ -11,7 +11,7 @@ const utils = require('../../utils');
  * @returns {string} code
  * @returns {Array.<Residents>} residents - Lista de moradores
  */
-router.get('/residents/:apartment_id', async (req, res) => {
+router.get('/:apartment_id', async (req, res) => {
   try {
     const { apartment_id } = req.params;
 

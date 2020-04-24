@@ -1,13 +1,7 @@
-const { Apartments } = require('../database/models');
+const { Apartments, Residents } = require('../database/models');
 
 module.exports = {
   getAll: async () => await Apartments.findAll(),
-  getByBlock: async (block_id) =>
-    await Apartments.findAll({
-      where: {
-        block_id,
-      },
-    }),
   getById: async (id) => await Apartments.findOne({ where: { id } }),
   add: async (apartment) =>
     await Apartments.create({
@@ -28,9 +22,15 @@ module.exports = {
       }
     ),
   delete: async (id) =>
-    await Apartments.destroy({
+    await Residents.destroy({
       where: {
-        id,
+        apartment_id: id,
       },
-    }),
+    }).then(() =>
+      Apartments.destroy({
+        where: {
+          id,
+        },
+      })
+    ),
 };

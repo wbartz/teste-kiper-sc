@@ -2,14 +2,14 @@
 
 /**
  * @typedef Residents
- * @property {int} id
+ * @property {number} id
  * @property {string} full_name
  * @property {string} phone
  * @property {string} cpf
  * @property {string} email
  * @property {string} birthday 
  * @property {bool} accountable
- * @property {int} apartment_id
+ * @property {number} apartment_id
 */
 
 module.exports = (sequelize, DataTypes) => {

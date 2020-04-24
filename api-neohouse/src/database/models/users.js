@@ -2,7 +2,7 @@
 
 /**
  * @typedef Users
- * @property {int} id
+ * @property {number} id
  * @property {string} full_name
  * @property {string} email
  * @property {string} password

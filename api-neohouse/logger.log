@@ -32,3 +32,21 @@
 [33mwarn[39m: [ERROR: 2020-04-22T21:59:15.198Z] - add-apartment: SequelizeUniqueConstraintError: Validation error
 [33mwarn[39m: [ERROR: 2020-04-22T22:00:23.523Z] - add-apartment: SequelizeUniqueConstraintError: Validation error
 [33mwarn[39m: [ERROR: 2020-04-22T22:02:08.727Z] - add-apartment: SequelizeUniqueConstraintError: Validation error
+[33mwarn[39m: [ERROR: 2020-04-23T17:19:57.390Z] - get-apartment-error: ReferenceError: apartament is not defined
+[33mwarn[39m: [ERROR: 2020-04-23T17:22:42.190Z] - get-apartment-error: ReferenceError: apartament is not defined
+[33mwarn[39m: [ERROR: 2020-04-23T17:22:47.608Z] - get-apartment-error: ReferenceError: apartament is not defined
+[33mwarn[39m: [ERROR: 2020-04-23T17:23:04.223Z] - get-apartment-error: ReferenceError: apartament is not defined
+[33mwarn[39m: [ERROR: 2020-04-23T17:31:26.347Z] - get-apartment-error: ReferenceError: apartament is not defined
+[33mwarn[39m: [ERROR: 2020-04-23T17:32:20.105Z] - get-apartment-error: ReferenceError: apartament is not defined
+[33mwarn[39m: [ERROR: 2020-04-23T17:32:34.260Z] - get-apartment-error: ReferenceError: apartament is not defined
+[33mwarn[39m: [ERROR: 2020-04-23T17:32:44.212Z] - get-apartment-error: ReferenceError: apartament is not defined
+[33mwarn[39m: [ERROR: 2020-04-23T17:33:37.704Z] - get-apartment-error: ReferenceError: apartament is not defined
+[33mwarn[39m: [ERROR: 2020-04-23T17:34:30.339Z] - get-apartment-error: ReferenceError: apartament is not defined
+[33mwarn[39m: [ERROR: 2020-04-23T17:35:34.138Z] - get-apartment-error: ReferenceError: apartament is not defined
+[33mwarn[39m: [ERROR: 2020-04-23T17:35:49.103Z] - get-apartment-error: ReferenceError: apartament is not defined
+[33mwarn[39m: [ERROR: 2020-04-23T17:36:10.877Z] - get-apartment-error: ReferenceError: apartament is not defined
+[33mwarn[39m: [ERROR: 2020-04-23T17:36:20.367Z] - get-apartment-error: ReferenceError: apartament is not defined
+[33mwarn[39m: [ERROR: 2020-04-23T17:36:30.329Z] - get-apartment-error: ReferenceError: apartament is not defined
+[33mwarn[39m: [ERROR: 2020-04-23T17:36:42.795Z] - get-apartment-error: ReferenceError: apartament is not defined
+[33mwarn[39m: [ERROR: 2020-04-23T17:37:00.962Z] - get-apartment-error: ReferenceError: apartament is not defined
+[33mwarn[39m: [ERROR: 2020-04-23T17:54:06.385Z] - list-blocks: SequelizeDatabaseError: Expression #1 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'neohouse.a.number' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by

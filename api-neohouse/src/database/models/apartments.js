@@ -2,9 +2,9 @@
 
 /**
  * @typedef Apartments
- * @property {int} id
- * @property {int} number
- * @property {int} block
+ * @property {number} id
+ * @property {number} number
+ * @property {number} block_id
  */
 
 module.exports = (sequelize, DataTypes) => {
