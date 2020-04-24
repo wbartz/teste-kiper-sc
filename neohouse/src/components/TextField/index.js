@@ -2,7 +2,6 @@ import PropTypes from 'prop-types';
 import React, { useCallback, useEffect, useState, useRef } from 'react';
 import './index.scss';
 import M from 'materialize-css';
-import options from './options';
 
 const TextField = ({
   onChange,

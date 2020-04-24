@@ -5,7 +5,7 @@ import { Menu, MenuItem } from '../Menu';
 import './index.scss';
 import { AppContext } from '../../containers/StoreProvider';
 
-const UserMenu = ({ onLogout, signOut }) => {
+export const UserMenuComponent = ({ onLogout, signOut }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [user, setUser] = useState(null);
 
@@ -39,7 +39,7 @@ const UserMenu = ({ onLogout, signOut }) => {
           <button
             type="button"
             className="nav-user-open btn-link"
-            onClick={() => setIsOpen(true)}
+            onClick={() => setIsOpen(!isOpen)}
           >
             <i className="icon-user material-icons">account_circle</i>
             <i className="icon-arrow-down material-icons">
@@ -53,9 +53,9 @@ const UserMenu = ({ onLogout, signOut }) => {
   );
 };
 
-UserMenu.propTypes = {
+UserMenuComponent.propTypes = {
   onLogout: PropTypes.func.isRequired,
   signOut: PropTypes.func.isRequired,
 };
 
-export default props => <UserMenu {...useContext(AppContext)} {...props} />;
+export default props => <UserMenuComponent {...useContext(AppContext)} {...props} />;

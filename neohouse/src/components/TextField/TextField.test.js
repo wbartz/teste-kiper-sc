@@ -4,13 +4,15 @@ import TextField from '.';
 
 describe('TextField', () => {
   const props = {
-    value: '',
-    type: 'text',
-    name: 'TextField',
     onChange: jest.fn(),
     onKeyPress: jest.fn(),
-    label: 'TextField',
     icon: 'search',
+    name: 'busca',
+    value: '',
+    label: 'busca',
+    type: 'text',
+    required: false,
+    size: 'auto',
   };
   const wrapper = shallow(<TextField {...props} />);
 

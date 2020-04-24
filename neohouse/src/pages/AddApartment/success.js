@@ -1,9 +1,8 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import { withRouter } from 'react-router';
 import Modal from '../../components/Modal';
 
-export const Success = ({ show, onClose }) => {
+const SuccessComponent = ({ show, onClose }) => {
   const handleFinish = () => onClose();
 
   return (
@@ -22,9 +21,9 @@ export const Success = ({ show, onClose }) => {
   );
 };
 
-Success.propTypes = {
+SuccessComponent.propTypes = {
   show: PropTypes.bool.isRequired,
   onClose: PropTypes.func.isRequired,
 };
 
-export default withRouter(Success);
+export default SuccessComponent;

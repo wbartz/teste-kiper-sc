@@ -4,7 +4,6 @@ import { NavbarComponent } from '.';
 
 describe('NavbarComponent', () => {
   const props = {
-    auth: '',
     history: {
       push: jest.fn(),
     },

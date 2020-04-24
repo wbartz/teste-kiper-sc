@@ -1,8 +1,9 @@
 import { shallow } from 'enzyme';
 import React from 'react';
-import FormAddApartment from './formAddApartment';
+import EditResident from './formEditResident';
 
-describe('FormAddApartment', () => {
+describe('EditResident', () => {
+  let wrapper;
   const props = {
     history: {
       push: jest.fn(),
@@ -10,11 +11,16 @@ describe('FormAddApartment', () => {
     location: {
       state: {
         block_id: 1,
-      },
+        apartment_id: 1,
+      }
     },
-    addApartment: jest.fn(),
+    getResident: jest.fn(),
+    editResident: jest.fn(),
   };
-  const wrapper = shallow(<FormAddApartment {...props} />);
+
+  beforeEach(() => {
+    wrapper = shallow(<EditResident {...props} />);
+  });
 
   it('render without crashing', () => {
     expect(wrapper).toMatchSnapshot();

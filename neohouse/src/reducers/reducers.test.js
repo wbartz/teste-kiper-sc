@@ -91,7 +91,7 @@ describe('Dashboard actions', () => {
   });
 
   it('getDashboard', () => {
-    const error = 'fail';
+    const error = 'Ocorreu um erro durante a requisição. Por favor tente novamente!';
     const request = AppReducer(undefined, { type: DASHBOARD_REQUEST });
     const success = AppReducer(undefined, {
       type: DASHBOARD_SUCCESS,

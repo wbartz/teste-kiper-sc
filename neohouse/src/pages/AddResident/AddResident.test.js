@@ -1,17 +1,19 @@
 import { shallow } from 'enzyme';
 import React from 'react';
-import Modal from '../../../components/Modal';
-import AddResident from '.';
+import AddResident from './formAddResident';
 
 describe('AddResident', () => {
   let wrapper;
   const props = {
     history: {
-      go: jest.fn(),
+      push: jest.fn(),
     },
-    onClose: jest.fn(),
-    user: {},
-    show: false,
+    location: {
+      state: {
+        apartment_id: 1,
+      },
+    },
+    addResident: jest.fn(),
   };
 
   beforeEach(() => {
@@ -20,9 +22,5 @@ describe('AddResident', () => {
 
   it('render without crashing', () => {
     expect(wrapper).toMatchSnapshot();
-  });
-
-  it('render Modal', () => {
-    expect(wrapper.find(Modal).exists()).toBeTruthy();
   });
 });

@@ -1,6 +1,5 @@
 import { shallow } from 'enzyme';
 import React from 'react';
-import Modal from '../../../components/Modal';
 import Success from './success';
 
 describe('Success', () => {
@@ -20,9 +19,5 @@ describe('Success', () => {
 
   it('render without crashing', () => {
     expect(wrapper).toMatchSnapshot();
-  });
-
-  it('render Modal', () => {
-    expect(wrapper.find(Modal).exists()).toBeTruthy();
   });
 });
