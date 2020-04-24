@@ -55,6 +55,15 @@ router.get('/', async (req, res) => {
       });
     }
 
+    const hasAccountable = await service.getAccountable(apartment_id);
+
+    if (hasAccountable) {
+      return res.status(200).json({
+        type: 'error',
+        code: 'accountable-error',
+      });
+    }
+
     const resident = await service.add(req.body);
 
     return res.status(201).json({

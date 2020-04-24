@@ -32,18 +32,20 @@ const Dashboard = ({ getDashboard, dashboard, history }) => {
                   <div className="content">
                     <div className="content-line">
                       <i className="material-icons">house</i>
-                      <span>Apartamentos: {line.apartments}</span>
+                      <span>Apartamentos</span>
+                      <span className="count">{line.apartments}</span>
                     </div>
                     <div className="content-line">
                       <i className="material-icons">person</i>
-                      <span>Moradores: {line.residents}</span>
+                      <span>Moradores</span>
+                      <span className="count">{line.residents}</span>
                     </div>
                   </div>
                 }
                 icon="apartment"
                 onEdit={() =>
                   history.push(`/apartamentos/${line.name.replace(' ', '-').toLowerCase()}`, {
-                    block: line.id,
+                    block_id: line.id,
                   })
                 }
               />

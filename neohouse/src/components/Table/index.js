@@ -20,8 +20,22 @@ const Table = ({ header, lines, onEdit, onRemove, onView }) => {
             lines.map((line) => (
               <tr key={Math.random()}>
                 {Object.keys(line).map((index) => {
-                  if (index !== 'id')
-                    return <td key={line[index]}>{line[index]}</td>;
+                  if (index !== 'id') {
+                    if (typeof line[index] === 'boolean') {
+                      return (
+                        <td key={line[index]} className="status">
+                          <i
+                            className={`material-icons ${
+                              line[index] ? 'success' : 'danger'
+                            }`}
+                          >
+                            {line[index] ? 'check_circle' : 'cancel'}
+                          </i>
+                        </td>
+                      );
+                    }
+                    return <td key={line[index] || Math.random()}>{line[index] || ' - '}</td>;
+                  }
                   return null;
                 })}
                 <td className="table-actions right">
@@ -52,7 +66,7 @@ const Table = ({ header, lines, onEdit, onRemove, onView }) => {
             ))
           ) : (
             <tr className="no-results">
-              <td colspan={header.length} className="center">
+              <td colSpan={header.length} className="center">
                 Nenhum registro encontrado
               </td>
             </tr>

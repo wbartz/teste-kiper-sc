@@ -3,6 +3,9 @@ import { fetchAPI, LOG } from '../../helpers';
 export const APARTMENTS_REQUEST = 'APARTMENTS_REQUEST';
 export const APARTMENTS_SUCCESS = 'APARTMENTS_SUCCESS';
 export const APARTMENTS_FAILURE = 'APARTMENTS_FAILURE';
+export const CHANGE_APARTMENTS_REQUEST = 'CHANGE_APARTMENTS_REQUEST';
+export const CHANGE_APARTMENTS_SUCCESS = 'CHANGE_APARTMENTS_SUCCESS';
+export const CHANGE_APARTMENTS_FAILURE = 'CHANGE_APARTMENTS_FAILURE';
 export const APARTMENTS_DELETE_REQUEST = 'APARTMENTS_DELETE_REQUEST';
 export const APARTMENTS_DELETE_SUCCESS = 'APARTMENTS_DELETE_SUCCESS';
 export const APARTMENTS_DELETE_FAILURE = 'APARTMENTS_DELETE_FAILURE';
@@ -12,7 +15,7 @@ export const getApartments = (block_id) => async (dispatch) => {
 
   await fetchAPI(`/blocks/${block_id}`)
     .then(({ data }) => {
-      if(data.type === 'success') {
+      if (data.type === 'success') {
         dispatch({
           type: APARTMENTS_SUCCESS,
           apartments: data.apartments,
@@ -34,11 +37,11 @@ export const getApartments = (block_id) => async (dispatch) => {
 };
 
 export const removeApartment = (id, onSuccess) => async (dispatch) => {
-  dispatch({type: APARTMENTS_DELETE_REQUEST});
+  dispatch({ type: APARTMENTS_DELETE_REQUEST });
 
   await fetchAPI(`/apartments/${id}`, 'delete')
     .then(({ data }) => {
-      if(data.type === 'success') {
+      if (data.type === 'success') {
         dispatch({
           type: APARTMENTS_DELETE_SUCCESS,
           apartments: data.apartments,
@@ -57,4 +60,56 @@ export const removeApartment = (id, onSuccess) => async (dispatch) => {
         error,
       });
     });
-}
+};
+
+export const addApartment = (body, onSuccess) => async (dispatch) => {
+  dispatch({ type: CHANGE_APARTMENTS_REQUEST });
+
+  await fetchAPI(`/apartments/`, 'post', body)
+    .then(({ data }) => {
+      if (data.type === 'success') {
+        dispatch({
+          type: CHANGE_APARTMENTS_SUCCESS,
+          apartment: data.apartment,
+        });
+        return onSuccess(data.apartment);
+      }
+      dispatch({
+        type: CHANGE_APARTMENTS_FAILURE,
+        error: data.code,
+      });
+    })
+    .catch((error) => {
+      LOG(CHANGE_APARTMENTS_FAILURE, error);
+      dispatch({
+        type: CHANGE_APARTMENTS_FAILURE,
+        error,
+      });
+    });
+};
+
+export const editApartment = (id, body, onSuccess) => async (dispatch) => {
+  dispatch({ type: CHANGE_APARTMENTS_REQUEST });
+
+  await fetchAPI(`/apartments/${id}`, 'post', body)
+    .then(({ data }) => {
+      if (data.type === 'success') {
+        dispatch({
+          type: CHANGE_APARTMENTS_SUCCESS,
+          apartment: data.apartment,
+        });
+        return onSuccess(data.apartment);
+      }
+      dispatch({
+        type: CHANGE_APARTMENTS_FAILURE,
+        error: data.code,
+      });
+    })
+    .catch((error) => {
+      LOG(CHANGE_APARTMENTS_FAILURE, error);
+      dispatch({
+        type: CHANGE_APARTMENTS_FAILURE,
+        error,
+      });
+    });
+};

@@ -12,8 +12,18 @@ module.exports = {
     }),
   getByApartment: async (apartment_id) =>
     await Residents.findAll({
+      attributes: ['id', 'accountable', 'full_name', 'cpf', 'birthday', 'email', 'phone'],
       where: {
         apartment_id,
+      },
+    }),
+  getAccountable: async (apartment_id) =>
+    await Residents.findAll({
+      attributes: ['full_name', 'email', 'phone'],
+      raw: true,
+      where: {
+        apartment_id,
+        accountable: true,
       },
     }),
   getById: async (id) => await Residents.findOne({ id }),

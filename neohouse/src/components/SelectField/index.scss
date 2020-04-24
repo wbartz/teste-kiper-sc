@@ -1,0 +1,48 @@
+@import '../../styles/variables';
+
+.input-field.select {
+  select {
+    border-color: $color-lighter-gray;
+    color: $color-black;
+    font-size: 16px;
+  }
+
+  label {
+    font-family: $font-family-alternative;
+    font-size: 16px;
+    left: 0px;
+    top: -36px;
+    position: absolute;
+    background-color: #ffffff;
+    padding: 0 5px;
+    text-transform: lowercase;
+  }
+
+  label::first-letter {
+    text-transform: uppercase;
+  }
+
+  .postfix {
+    position: absolute;
+    font-size: 2rem;
+    transition: $transition-color;
+    top: $font-size-regular;
+    right: -30px;
+  }
+
+  span.error {
+    font-family: $font-family-alternative;
+    font-size: 12px;
+    color: $color-error;
+
+    i {
+      font-size: 16px;
+    }
+  }
+}
+
+.input-field.invalid {
+  input {
+    border-color: $color-error !important;
+  }
+}

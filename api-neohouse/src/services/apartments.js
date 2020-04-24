@@ -3,6 +3,13 @@ const { Apartments, Residents } = require('../database/models');
 module.exports = {
   getAll: async () => await Apartments.findAll(),
   getById: async (id) => await Apartments.findOne({ where: { id } }),
+  getByBlock: async (block_id) =>
+    await Apartments.findAll({
+      attributes: ['id', 'number'],
+      where: {
+        block_id,
+      },
+    }),
   add: async (apartment) =>
     await Apartments.create({
       ...apartment,

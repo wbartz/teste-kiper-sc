@@ -13,32 +13,41 @@ const Apartments = ({
 }) => {
   const [hasData, setData] = useState(false);
   const getData = useCallback(async () => {
-    const { block } = location.state;
-    await getApartments(block);
-    setData(true);
+    const { block_id } = location.state;
+    await getApartments(block_id);
   }, [getApartments, location.state]);
 
   useEffect(() => {
     if (!hasData) {
       getData();
+      setData(true)
     }
   }, [location, getData, hasData]);
 
   const handleView = (id) =>
     history.push(`${location.pathname}/moradores/apartamento-${id}`, {
-      block: location.state.block,
+      block_id: location.state.block_id,
       id,
     });
   const handleEdit = (id) =>
     history.push(`${location.pathname}/edit/apartamento-${id}`, {
-      block: location.state.block,
+      block_id: location.state.block_id,
       id,
+    });
+  const handleAdd = () =>
+    history.push(`${location.pathname}/novo-apartamento`, {
+      block_id: location.state.block_id,
     });
   const handleDelete = (id) => removeApartment(id, getData);
 
   return (
     <div className="page">
       <div className="apartment-page">
+        <div className="right">
+          <button type="button" className="btn primary" onClick={handleAdd}>
+            <i className="material-icons right">add</i>Adicionar
+          </button>
+        </div>
         <Table
           header={['Número Apt.', 'Responsável', 'E-mail', 'Telefone']}
           lines={apartments}

@@ -22,17 +22,28 @@ const Breadcrumb = ({ history, location }) => {
     }
 
     if (routes.length >= 2) {
+      const urls = routes[1].split('-');
       paths.push({
-        label: `${getPath(routes[0])} - ${getPath(routes[1])}`,
+        label: `${getPath(routes[0])} - ${getPath(urls[0])} ${getPath(urls[1])}`,
         link: `/${routes[0]}/${routes[1]}`,
         active: routes.length === 2,
       });
     }
 
     if (routes.length === 4) {
+      const urls = routes[3].split('-');
       paths.push({
-        label: `${getPath(routes[2])} - ${getPath(routes[3])}`,
+        label: `${getPath(routes[2])} - ${getPath(urls[0])} ${getPath(urls[1])}`,
         link: `/${routes[3]}/${routes[2]}`,
+        active: true,
+      });
+    }
+
+    if(routes.length === 3) {
+      const urls = routes[2].split('-');
+      paths.push({
+        label: `${getPath(urls[0])} ${getPath(urls[1])}`,
+        link: `/${routes[2]}`,
         active: true,
       });
     }
@@ -50,7 +61,7 @@ const Breadcrumb = ({ history, location }) => {
           ? pages.map((page) => (
               <span key={page.label} className={page.active ? 'active' : ''}>
                 {!page.active ? (
-                  <i onClick={() => history.push(`${page.link}`)}>
+                  <i onClick={() => history.push(`${page.link}`, {...location.state})}>
                     {page.label}
                   </i>
                 ) : (
@@ -66,6 +77,7 @@ const Breadcrumb = ({ history, location }) => {
 
 Breadcrumb.propTypes = {
   history: PropTypes.shape({ push: PropTypes.func }).isRequired,
+  location: PropTypes.oneOfType([PropTypes.object, PropTypes.array]).isRequired,
 };
 
 export default withRouter(Breadcrumb);

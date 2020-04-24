@@ -8,6 +8,7 @@ import isLogged from './isLogged';
 import isDebug from './debug';
 import getMessage from './getMessage';
 import LOG from './log';
+import formatDate from './formatDate';
 
 export {
   LOG,
@@ -22,4 +23,5 @@ export {
   onlyNumbers,
   useActions,
   getMessage,
+  formatDate,
 };

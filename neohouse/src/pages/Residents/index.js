@@ -15,12 +15,12 @@ const Residents = ({
   const getData = useCallback(async () => {
     const { block } = location.state;
     await getResidents(block);
-    setData(true);
   }, [getResidents, location.state]);
-
+  
   useEffect(() => {
     if (!hasData) {
       getData();
+      setData(true);
     }
   }, [location, getData, hasData]);
 

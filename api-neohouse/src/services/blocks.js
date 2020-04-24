@@ -7,17 +7,24 @@ module.exports = {
     await sequelize.query(
       `SELECT
         a.id,
-        a. number,
+        a.number,
         r.full_name,
         r.email,
         r.phone
       FROM
         Apartments a
-        INNER JOIN Residents r
+      LEFT JOIN (
+          SELECT
+            full_name,
+            email,
+            phone,
+            apartment_id
+          FROM
+            Residents r
+          WHERE accountable = TRUE) r ON r.apartment_id = a.id
+      
       WHERE
-        a.block_id = ${block_id}
-        AND r.apartment_id = a.id
-        AND r.accountable = TRUE`,
+        a.block_id = ${block_id}`,
       {
         type: QueryTypes.SELECT,
       }

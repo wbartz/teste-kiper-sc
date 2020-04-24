@@ -1,6 +1,5 @@
 @import '../../styles/variables';
 
-
 table {
   thead {
     border-bottom: 1px solid $color-lighter-gray;
@@ -12,9 +11,23 @@ table {
   }
 
   tbody {
-    tr.no-results {
+    tr {
       font-size: $h5-font-size;
+    }
+
+    tr.no-results {
       font-style: italic;
+    }
+
+    td.status {
+      padding-left: 30px;
+      i.success {
+        color: $color-success;
+      }
+
+      i.danger {
+        color: $color-danger;
+      }
     }
 
     .table-actions {

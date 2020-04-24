@@ -1,6 +1,8 @@
 import PropTypes from 'prop-types';
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useState, useRef } from 'react';
 import './index.scss';
+import M from 'materialize-css';
+import options from './options';
 
 const TextField = ({
   onChange,
@@ -17,12 +19,17 @@ const TextField = ({
   format,
   ...rest
 }) => {
-  const [errorMsg, setErrorMsg] = useState();
+  const [errormsg, setErrorMsg] = useState();
   const handleChange = useCallback(text => onChange(text), [onChange]);
+  const fieldRef = useRef(null);
 
   useEffect(() => {
     setErrorMsg(null);
   }, [label]);
+
+  useEffect(() => {
+    if(type === 'datepicker') M.Datepicker.init(fieldRef.current, options)
+  }, [type])
 
   const resetErrors = target => {
     target.setCustomValidity('');
@@ -73,12 +80,13 @@ const TextField = ({
   return (
     <div className={`input-field input-outlined input-size__${size}`}>
       <input
+        ref={fieldRef}
         value={value}
-        type={type}
+        type={type === 'datepicker' ? 'text' : type}
         name={name}
         id={name}
         required={required}
-        className={`text-field ${required ? 'validate' : ''}`}
+        className={`text-field ${required ? 'validate' : ''} ${type}`}
         onChange={({ target }) => {
           if (target && target.classList) target.classList.remove('invalid');
           fill(target);
@@ -92,7 +100,7 @@ const TextField = ({
       />
       {label && <label htmlFor={name}>{label}</label>}
       {icon && <i className="material-icons postfix">{icon}</i>}
-      {errorMsg && <span>{errorMsg}</span>}
+      {errormsg && <span>{errormsg}</span>}
     </div>
   );
 };
@@ -106,7 +114,7 @@ TextField.propTypes = {
   label: PropTypes.string,
   type: PropTypes.string,
   required: PropTypes.bool,
-  size: PropTypes.oneOf(['sm', 'md', 'lg']),
+  size: PropTypes.oneOf(['sm', 'md', 'lg', 'auto']),
   customValidity: PropTypes.func,
   customValidityMessage: PropTypes.string,
   format: PropTypes.func,

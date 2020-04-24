@@ -1,7 +1,7 @@
 @import '../../styles/variables';
 
 .dashboard-page {
-  margin-top: 70px;
+  margin-top: 65px;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(306px, 1fr));
   grid-gap: 20px;
@@ -10,7 +10,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 20px;
+    margin-top: 10px;
     width: 300px;
 
     .content-line {
@@ -24,7 +24,13 @@
       span {
         flex: 0.5;
         text-align: center;
-        font-size: $h6-font-size;
+        font-size: $h5-font-size;
+      }
+
+      span.count {
+        font-weight: 600;
+        color: $color-secondary;
+        font-size: $h4-font-size;
       }
 
       i.material-icons {

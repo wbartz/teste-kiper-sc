@@ -50,3 +50,63 @@
 [33mwarn[39m: [ERROR: 2020-04-23T17:36:42.795Z] - get-apartment-error: ReferenceError: apartament is not defined
 [33mwarn[39m: [ERROR: 2020-04-23T17:37:00.962Z] - get-apartment-error: ReferenceError: apartament is not defined
 [33mwarn[39m: [ERROR: 2020-04-23T17:54:06.385Z] - list-blocks: SequelizeDatabaseError: Expression #1 of SELECT list is not in GROUP BY clause and contains nonaggregated column 'neohouse.a.number' which is not functionally dependent on columns in GROUP BY clause; this is incompatible with sql_mode=only_full_group_by
+[33mwarn[39m: [ERROR: 2020-04-24T00:14:40.000Z] - list-dashboard: SequelizeDatabaseError: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'SELECT
+            COUNT(*)
+          FROM
+            Apartments a
+          WH' at line 4
+[33mwarn[39m: [ERROR: 2020-04-24T00:14:40.026Z] - list-dashboard: SequelizeDatabaseError: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'SELECT
+            COUNT(*)
+          FROM
+            Apartments a
+          WH' at line 4
+[33mwarn[39m: [ERROR: 2020-04-24T00:14:40.045Z] - list-dashboard: SequelizeDatabaseError: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'SELECT
+            COUNT(*)
+          FROM
+            Apartments a
+          WH' at line 4
+[33mwarn[39m: [ERROR: 2020-04-24T00:14:40.068Z] - list-dashboard: SequelizeDatabaseError: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'SELECT
+            COUNT(*)
+          FROM
+            Apartments a
+          WH' at line 4
+[33mwarn[39m: [ERROR: 2020-04-24T00:14:40.079Z] - list-dashboard: SequelizeDatabaseError: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'SELECT
+            COUNT(*)
+          FROM
+            Apartments a
+          WH' at line 4
+[33mwarn[39m: [ERROR: 2020-04-24T00:14:40.096Z] - list-dashboard: SequelizeDatabaseError: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'SELECT
+            COUNT(*)
+          FROM
+            Apartments a
+          WH' at line 4
+[33mwarn[39m: [ERROR: 2020-04-24T00:14:45.085Z] - list-dashboard: SequelizeDatabaseError: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'SELECT
+            COUNT(*)
+          FROM
+            Apartments a
+          WH' at line 4
+[33mwarn[39m: [ERROR: 2020-04-24T00:14:45.159Z] - list-dashboard: SequelizeDatabaseError: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'SELECT
+            COUNT(*)
+          FROM
+            Apartments a
+          WH' at line 4
+[33mwarn[39m: [ERROR: 2020-04-24T00:14:45.201Z] - list-dashboard: SequelizeDatabaseError: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'SELECT
+            COUNT(*)
+          FROM
+            Apartments a
+          WH' at line 4
+[33mwarn[39m: [ERROR: 2020-04-24T00:14:45.233Z] - list-dashboard: SequelizeDatabaseError: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'SELECT
+            COUNT(*)
+          FROM
+            Apartments a
+          WH' at line 4
+[33mwarn[39m: [ERROR: 2020-04-24T02:57:05.081Z] - list-blocks: SequelizeDatabaseError: Unknown column 'undefined' in 'where clause'
+[33mwarn[39m: [ERROR: 2020-04-24T02:57:05.096Z] - list-blocks: SequelizeDatabaseError: Unknown column 'undefined' in 'where clause'
+[33mwarn[39m: [ERROR: 2020-04-24T02:57:05.118Z] - list-blocks: SequelizeDatabaseError: Unknown column 'undefined' in 'where clause'
+[33mwarn[39m: [ERROR: 2020-04-24T02:57:05.137Z] - list-blocks: SequelizeDatabaseError: Unknown column 'undefined' in 'where clause'
+[33mwarn[39m: [ERROR: 2020-04-24T02:57:05.168Z] - list-blocks: SequelizeDatabaseError: Unknown column 'undefined' in 'where clause'
+[33mwarn[39m: [ERROR: 2020-04-24T03:03:47.603Z] - list-blocks: SequelizeDatabaseError: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE
+        a.block_id = 1
+        AND r.apartment_id = a.id
+        AND r.acc' at line 10
+[33mwarn[39m: [ERROR: 2020-04-24T04:07:17.723Z] - list-blocks: SequelizeDatabaseError: Unknown column 'r.apartment_id' in 'on clause'
