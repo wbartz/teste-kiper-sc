@@ -8,7 +8,7 @@ echo "Aguardando banco"
 while true
 do
     string=$(docker-compose logs --tail=1)
-    if [[ $string = *"ready to accept connections"* ]]
+    if [[ $string = *"Plugin ready for connections"* ]]
     then
         echo "Banco iniciado"
         break
