@@ -139,3 +139,29 @@ export const editResident = (id, body, onSuccess) => async (dispatch) => {
       });
     });
 };
+
+export const searchResidents = (term, field) => async (dispatch) => {
+  dispatch({ type: RESIDENTS_REQUEST });
+
+  await fetchAPI(`/residents/search/`, 'post', { term, field })
+    .then(({ data }) => {
+      if (data.type === 'success') {
+        dispatch({
+          type: RESIDENTS_SUCCESS,
+          residents: data.residents,
+        });
+        return;
+      }
+      dispatch({
+        type: RESIDENTS_FAILURE,
+        error: data.code,
+      });
+    })
+    .catch((error) => {
+      LOG(RESIDENTS_FAILURE, error);
+      dispatch({
+        type: RESIDENTS_FAILURE,
+        error,
+      });
+    });
+};

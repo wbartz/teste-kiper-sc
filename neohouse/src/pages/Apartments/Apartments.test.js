@@ -6,6 +6,7 @@ describe('Apartments', () => {
   const props = {
     getApartments: jest.fn(),
     removeApartment: jest.fn(),
+    searchResidents: jest.fn(),
     location: {
       state: {
         block: 1,

@@ -9,7 +9,7 @@ export const ConfirmRemove = ({ show, onClose, onConfirm }) => {
       <div className="row">
         <span>Tem certeza que deseja remover esse morador?</span>
       </div>
-      <div className="row confirm-buttons">
+      <div className="row buttons">
         <button type="button" className="btn btn-flat" onClick={onClose}>
           Cancelar
         </button>

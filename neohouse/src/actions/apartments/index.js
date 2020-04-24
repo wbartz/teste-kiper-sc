@@ -10,10 +10,10 @@ export const APARTMENTS_DELETE_REQUEST = 'APARTMENTS_DELETE_REQUEST';
 export const APARTMENTS_DELETE_SUCCESS = 'APARTMENTS_DELETE_SUCCESS';
 export const APARTMENTS_DELETE_FAILURE = 'APARTMENTS_DELETE_FAILURE';
 
-export const getApartments = (block_id) => async (dispatch) => {
+export const getApartments = (block_id,number = null) => async (dispatch) => {
   dispatch({ type: APARTMENTS_REQUEST });
 
-  await fetchAPI(`/blocks/${block_id}`)
+  await fetchAPI(`/blocks/${block_id}${number ? `/${number}` : ''}`)
     .then(({ data }) => {
       if (data.type === 'success') {
         dispatch({

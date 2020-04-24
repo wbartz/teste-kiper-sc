@@ -1,34 +1,9 @@
 import AppReducer from '.';
-import {
-  EMAIL_SIGNIN_FAILURE,
-  EMAIL_SIGNIN_REQUEST,
-  EMAIL_SIGNIN_SUCCESS,
-  SIGNOUT_FAILURE,
-  SIGNOUT_REQUEST,
-  SIGNOUT_SUCCESS,
-} from '../actions/session';
+import { APARTMENTS_DELETE_FAILURE, APARTMENTS_DELETE_REQUEST, APARTMENTS_DELETE_SUCCESS, APARTMENTS_FAILURE, APARTMENTS_REQUEST, APARTMENTS_SUCCESS, CHANGE_APARTMENTS_FAILURE, CHANGE_APARTMENTS_REQUEST, CHANGE_APARTMENTS_SUCCESS } from '../actions/apartments';
+import { DASHBOARD_FAILURE, DASHBOARD_REQUEST, DASHBOARD_SUCCESS } from '../actions/dashboard';
+import { CHANGE_RESIDENTS_FAILURE, CHANGE_RESIDENTS_REQUEST, CHANGE_RESIDENTS_SUCCESS, RESIDENTS_DELETE_FAILURE, RESIDENTS_DELETE_REQUEST, RESIDENTS_DELETE_SUCCESS, RESIDENTS_FAILURE, RESIDENTS_REQUEST, RESIDENTS_SUCCESS } from '../actions/residents';
+import { EMAIL_SIGNIN_FAILURE, EMAIL_SIGNIN_REQUEST, EMAIL_SIGNIN_SUCCESS, SIGNOUT_FAILURE, SIGNOUT_REQUEST, SIGNOUT_SUCCESS } from '../actions/session';
 import { RESET_ERROR_MESSAGES } from '../actions/status';
-import {
-  DASHBOARD_REQUEST,
-  DASHBOARD_SUCCESS,
-  DASHBOARD_FAILURE,
-} from '../actions/dashboard';
-import {
-  APARTMENTS_REQUEST,
-  APARTMENTS_SUCCESS,
-  APARTMENTS_FAILURE,
-  APARTMENTS_DELETE_REQUEST,
-  APARTMENTS_DELETE_SUCCESS,
-  APARTMENTS_DELETE_FAILURE,
-} from '../actions/apartments';
-import {
-  RESIDENTS_REQUEST,
-  RESIDENTS_SUCCESS,
-  RESIDENTS_FAILURE,
-  RESIDENTS_DELETE_REQUEST,
-  RESIDENTS_DELETE_SUCCESS,
-  RESIDENTS_DELETE_FAILURE,
-} from '../actions/residents';
 
 describe('Status Actions', () => {
   it('faultback to a initial state', () => {
@@ -99,6 +74,144 @@ describe('Dashboard actions', () => {
     });
     const failure = AppReducer(undefined, {
       type: DASHBOARD_FAILURE,
+      error,
+    });
+
+    expect(request).toHaveProperty('isLoading', true);
+
+    expect(success).toHaveProperty('isLoading', false);
+    expect(success).toHaveProperty('dashboard', []);
+
+    expect(failure).toHaveProperty('isLoading', false);
+    expect(failure).toHaveProperty('error', error);
+  });
+});
+
+describe('Apartments actions', () => {
+  it('faultback to a initial state', () => {
+    expect(AppReducer(undefined, { type: null })).toMatchSnapshot();
+  });
+
+  it('getApartments', () => {
+    const error = 'Ocorreu um erro durante a requisição. Por favor tente novamente!';
+    const request = AppReducer(undefined, { type: APARTMENTS_REQUEST });
+    const success = AppReducer(undefined, {
+      type: APARTMENTS_SUCCESS,
+      dashboard: [],
+    });
+    const failure = AppReducer(undefined, {
+      type: APARTMENTS_FAILURE,
+      error,
+    });
+
+    expect(request).toHaveProperty('isLoading', true);
+
+    expect(success).toHaveProperty('isLoading', false);
+    expect(success).toHaveProperty('dashboard', []);
+
+    expect(failure).toHaveProperty('isLoading', false);
+    expect(failure).toHaveProperty('error', error);
+  });
+
+  it('editApartments/addApartments', () => {
+    const error = 'Ocorreu um erro durante a requisição. Por favor tente novamente!';
+    const request = AppReducer(undefined, { type: CHANGE_APARTMENTS_REQUEST });
+    const success = AppReducer(undefined, {
+      type: CHANGE_APARTMENTS_SUCCESS,
+      dashboard: [],
+    });
+    const failure = AppReducer(undefined, {
+      type: CHANGE_APARTMENTS_FAILURE,
+      error,
+    });
+
+    expect(request).toHaveProperty('isLoading', true);
+
+    expect(success).toHaveProperty('isLoading', false);
+    expect(success).toHaveProperty('dashboard', []);
+
+    expect(failure).toHaveProperty('isLoading', false);
+    expect(failure).toHaveProperty('error', error);
+  });
+
+  it('removeApartment', () => {
+    const error = 'Ocorreu um erro durante a requisição. Por favor tente novamente!';
+    const request = AppReducer(undefined, { type: APARTMENTS_DELETE_REQUEST });
+    const success = AppReducer(undefined, {
+      type: APARTMENTS_DELETE_SUCCESS,
+      dashboard: [],
+    });
+    const failure = AppReducer(undefined, {
+      type: APARTMENTS_DELETE_FAILURE,
+      error,
+    });
+
+    expect(request).toHaveProperty('isLoading', true);
+
+    expect(success).toHaveProperty('isLoading', false);
+    expect(success).toHaveProperty('dashboard', []);
+
+    expect(failure).toHaveProperty('isLoading', false);
+    expect(failure).toHaveProperty('error', error);
+  });
+});
+
+describe('Residents actions', () => {
+  it('faultback to a initial state', () => {
+    expect(AppReducer(undefined, { type: null })).toMatchSnapshot();
+  });
+
+  it('getResidents', () => {
+    const error = 'Ocorreu um erro durante a requisição. Por favor tente novamente!';
+    const request = AppReducer(undefined, { type: RESIDENTS_REQUEST });
+    const success = AppReducer(undefined, {
+      type: RESIDENTS_SUCCESS,
+      dashboard: [],
+    });
+    const failure = AppReducer(undefined, {
+      type: RESIDENTS_FAILURE,
+      error,
+    });
+
+    expect(request).toHaveProperty('isLoading', true);
+
+    expect(success).toHaveProperty('isLoading', false);
+    expect(success).toHaveProperty('dashboard', []);
+
+    expect(failure).toHaveProperty('isLoading', false);
+    expect(failure).toHaveProperty('error', error);
+  });
+
+  it('editResidents/addResidents', () => {
+    const error = 'Ocorreu um erro durante a requisição. Por favor tente novamente!';
+    const request = AppReducer(undefined, { type: CHANGE_RESIDENTS_REQUEST });
+    const success = AppReducer(undefined, {
+      type: CHANGE_RESIDENTS_SUCCESS,
+      dashboard: [],
+    });
+    const failure = AppReducer(undefined, {
+      type: CHANGE_RESIDENTS_FAILURE,
+      error,
+    });
+
+    expect(request).toHaveProperty('isLoading', true);
+
+    expect(success).toHaveProperty('isLoading', false);
+    expect(success).toHaveProperty('dashboard', []);
+
+    expect(failure).toHaveProperty('isLoading', false);
+    expect(failure).toHaveProperty('error', error);
+  });
+
+  it('removeResident', () => {
+    const error = 'Ocorreu um erro durante a requisição. Por favor tente novamente!';
+    const request = AppReducer(undefined, { type: RESIDENTS_DELETE_REQUEST });
+    const success = AppReducer(undefined, {
+      type: RESIDENTS_DELETE_SUCCESS,
+      dashboard: [],
+    });
+    const failure = AppReducer(undefined, {
+      type: RESIDENTS_DELETE_FAILURE,
       error,
     });
 

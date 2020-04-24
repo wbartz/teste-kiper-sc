@@ -1,15 +1,24 @@
-const { Op } = require('sequelize');
-const { Residents } = require('../database/models');
+const { QueryTypes } = require('sequelize');
+const { Residents, sequelize } = require('../database/models');
 
 module.exports = {
-  getByName: async (name) =>
-    await Residents.findAll({
-      where: {
-        full_name: {
-          [Op.like]: `%${name}%`,
-        },
-      },
-    }),
+  search: async (field, term) =>
+    await sequelize.query(`
+      SELECT
+        r.id,
+        b.name,
+        a.number,
+        r.full_name,
+        r.email,
+        r.phone
+      FROM Residents r
+      INNER JOIN Apartments a ON r.apartment_id = a.id
+      INNER JOIN Blocks b ON a.block_id = b.id
+      WHERE r.${field} LIKE '%${term}%'`,
+      {
+        type: QueryTypes.SELECT,
+      }
+    ),
   getByApartment: async (apartment_id) =>
     await Residents.findAll({
       attributes: ['id', 'accountable', 'full_name', 'cpf', 'birthday', 'email', 'phone'],

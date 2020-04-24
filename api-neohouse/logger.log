@@ -247,3 +247,4 @@
 [33mwarn[39m: [ERROR: 2020-04-24T12:56:49.914Z] - get-apartment-error: ReferenceError: apartament is not defined
 [33mwarn[39m: [ERROR: 2020-04-24T14:46:41.977Z] - list-blocks: SequelizeDatabaseError: Unknown column 'undefined' in 'where clause'
 [33mwarn[39m: [ERROR: 2020-04-24T14:53:36.320Z] - list-blocks: SequelizeDatabaseError: Unknown column 'undefined' in 'where clause'
+[33mwarn[39m: [ERROR: 2020-04-24T18:38:06.441Z] - serach-residents: SequelizeDatabaseError: Unknown column 'Residents.William' in 'where clause'

@@ -1,5 +1,18 @@
 @import '../../styles/variables';
 
+.dashboard {
+  .search-field {
+    .row {
+      .col {
+        .btn {
+          margin-top: 25px;
+          margin-left: 25px;
+        }
+      }
+    }
+  }
+}
+
 .dashboard-page {
   margin-top: 65px;
   display: grid;

@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import React, { useEffect, useState, useCallback } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { withRouter } from 'react-router-dom';
 import './index.scss';
 
@@ -15,8 +15,8 @@ const Breadcrumb = ({ history, location }) => {
 
     if (routes.length >= 1) {
       paths.push({
-        label: 'Dashboard',
-        link: '/dashboard',
+        label: getPath(routes[0]),
+        link: `/${routes[0]}`,
         active: routes.length === 1,
       });
     }

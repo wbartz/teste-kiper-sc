@@ -195,4 +195,36 @@ router.get('/residents/:id', async (req, res) => {
   }
 });
 
+/**
+ * @route POST /api/v1/residents/search
+ * @group residents - Listagem dos moradores
+ * @returns {string} type - ex.: Success - error - warning
+ * @returns {string} code
+ */
+router.post('/search', async (req, res) => {
+  try {
+    const { field, term} = req.body;
+
+    if (!field || !term) {
+      return res.status(200).json({
+        type: 'error',
+        code: 'required-fields',
+      });
+    }
+
+    const residents = await service.search(field, term);
+
+    return res.status(201).json({
+      type: 'success',
+      residents,
+    });
+  } catch (error) {
+    utils.alert(`search-residents: ${error}`);
+    return res.status(200).json({
+      type: 'error',
+      code: 'search-residents-error',
+    });
+  }
+});
+
 module.exports = router;

@@ -7,3 +7,17 @@
     align-self: flex-end;
   }
 }
+
+.apartment {
+  .search-field {
+    .row {
+      .col {
+        padding: 0;
+
+        .btn {
+          margin-top: 25px;
+        }
+      }
+    }
+  }
+}

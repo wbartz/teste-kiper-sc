@@ -47,8 +47,8 @@ const Table = ({ header, lines, onEdit, onRemove, onView }) => {
                   {onView && (
                     <i
                       className="material-icons view"
-                      data-tip="Ver Moradores"
-                      onClick={() => onView(line.id)}
+                      data-tip="Visualizar"
+                      onClick={() => onView(line)}
                     >
                       visibility
                     </i>
@@ -56,8 +56,8 @@ const Table = ({ header, lines, onEdit, onRemove, onView }) => {
                   {onEdit && (
                     <i
                       className="material-icons edit"
-                      data-tip="Editar Apartamento"
-                      onClick={() => onEdit(line.id)}
+                      data-tip="Editar"
+                      onClick={() => onEdit(line)}
                     >
                       edit
                     </i>
@@ -65,8 +65,8 @@ const Table = ({ header, lines, onEdit, onRemove, onView }) => {
                   {onRemove && (
                     <i
                       className="material-icons remove"
-                      data-tip="Remover Apartamento"
-                      onClick={() => onRemove(line.id)}
+                      data-tip="Remover"
+                      onClick={() => onRemove(line)}
                     >
                       delete
                     </i>

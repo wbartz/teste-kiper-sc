@@ -1,6 +1,26 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Apartments actions faultback to a initial state 1`] = `
+Object {
+  "dashboard": Array [],
+  "error": null,
+  "isLoading": false,
+  "token": null,
+  "user": null,
+}
+`;
+
 exports[`Dashboard actions faultback to a initial state 1`] = `
+Object {
+  "dashboard": Array [],
+  "error": null,
+  "isLoading": false,
+  "token": null,
+  "user": null,
+}
+`;
+
+exports[`Residents actions faultback to a initial state 1`] = `
 Object {
   "dashboard": Array [],
   "error": null,

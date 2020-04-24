@@ -2,12 +2,13 @@ import PropTypes from 'prop-types';
 import React, { useCallback, useContext, useEffect, useState } from 'react';
 import Table from '../../components/Table';
 import { AppContext } from '../../containers/StoreProvider';
-import ConfirmRemove from './confirmRemove';
+import ConfirmRemove from '../Residents/confirmRemove';
 import './index.scss';
 
-const Residents = ({
+
+const Search = ({
   removeResident,
-  getResidents,
+  searchResidents,
   location,
   residents,
   history,
@@ -15,11 +16,11 @@ const Residents = ({
   const [hasData, setData] = useState(false);
   const [showConfirm, setShowConfirm] = useState(false);
   const [currentResident, setCurrentResident] = useState(null);
-  const { apartment_id } = location.state;
+  const { term, field } = location.state;
 
   const getData = useCallback(async () => {
-    await getResidents(apartment_id);
-  }, [getResidents, apartment_id]);
+    await searchResidents(term, field);
+  }, [searchResidents, term, field]);
 
   useEffect(() => {
     if (!hasData) {
@@ -28,14 +29,8 @@ const Residents = ({
     }
   }, [location, getData, hasData]);
 
-  const handleAdd = () =>
-    history.push(`${location.pathname}/novo-morador`, {
-      apartment_id: location.state.apartment_id,
-    });
-
-  const handleEdit = ({ id }) =>
-    history.push(`${location.pathname}/editar-morador`, {
-      apartment_id: location.state.apartment_id,
+  const handleEdit = ({id, name, number}) =>
+    history.push(`/apartamentos/${name.replace(' ', '-').toLowerCase()}/apartamento-${number}/moradores/editar-morador`, {
       resident_id: id,
     });
 
@@ -45,7 +40,7 @@ const Residents = ({
     setShowConfirm(false);
   };
 
-  const handleConfirm = ({ id }) => {
+  const handleConfirm = ({id}) => {
     setCurrentResident(id);
     setShowConfirm(true);
   };
@@ -53,18 +48,11 @@ const Residents = ({
   return (
     <div className="page">
       <div className="apartment-page">
-        <div className="right">
-          <button type="button" className="btn primary" onClick={handleAdd}>
-            <i className="material-icons right">add</i>Adicionar
-          </button>
-        </div>
-
         <Table
           header={[
-            'Responsável',
+            'Bloco',
+            'Apartamento',
             'Nome',
-            'CPF',
-            'Data Nasc',
             'E-mail',
             'Telefone',
           ]}
@@ -86,16 +74,16 @@ const Residents = ({
   );
 };
 
-Residents.propTypes = {
-  getResidents: PropTypes.func.isRequired,
+Search.propTypes = {
   removeResident: PropTypes.func.isRequired,
+  searchResidents: PropTypes.func.isRequired,
   residents: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
   location: PropTypes.oneOfType([PropTypes.object, PropTypes.array]).isRequired,
   history: PropTypes.shape({ push: PropTypes.func }).isRequired,
 };
 
-Residents.defaultProps = {
+Search.defaultProps = {
   residents: [],
 };
 
-export default (props) => <Residents {...useContext(AppContext)} {...props} />;
+export default (props) => <Search {...useContext(AppContext)} {...props} />;

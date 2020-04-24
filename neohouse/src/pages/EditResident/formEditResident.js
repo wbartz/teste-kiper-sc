@@ -2,6 +2,7 @@ import M from 'materialize-css';
 import PropTypes from 'prop-types';
 import React, { useCallback, useEffect, useState } from 'react';
 import { useForm } from 'react-hook-form';
+import { LOG } from '../../helpers';
 import Form from './form';
 import './index.scss';
 import Success from './success';
@@ -13,7 +14,8 @@ const FormEditResident = ({ history, location, editResident, getResident }) => {
   const { handleSubmit, control, errors, setValue } = useForm({
     validationSchema,
   });
-  const { apartment_id, resident_id } = location.state;
+  LOG(location.state);
+  const { resident_id } = location.state;
 
   const setValues = useCallback(
     (info) => {
@@ -43,7 +45,7 @@ const FormEditResident = ({ history, location, editResident, getResident }) => {
   };
 
   const handleAdd = (values) => {
-    editResident(resident_id, { ...values, apartment_id }, onSuccess);
+    editResident(resident_id, { ...values }, onSuccess);
   };
 
   return (

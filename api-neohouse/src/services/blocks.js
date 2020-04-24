@@ -3,7 +3,7 @@ const { QueryTypes } = require('sequelize');
 
 module.exports = {
   getAll: async () => await Blocks.findAll(),
-  getAllApartments: async (block_id) =>
+  getAllApartments: async (block_id, number = null) =>
     await sequelize.query(
       `SELECT
         a.id,
@@ -24,7 +24,7 @@ module.exports = {
           WHERE accountable = TRUE) r ON r.apartment_id = a.id
       
       WHERE
-        a.block_id = ${block_id}`,
+        a.block_id = ${block_id} ${number ? ` AND a.number = ${number}` : ''}`,
       {
         type: QueryTypes.SELECT,
       }

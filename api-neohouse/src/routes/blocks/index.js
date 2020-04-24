@@ -50,6 +50,22 @@ router.get('/:id', async (req, res) => {
       code: 'list-blocks-error',
     });
   }
+}).get('/:id/:apartment', async (req, res) => {
+  try {
+    const { id, apartment } = req.params;
+    const apartments = await service.getAllApartments(id, apartment);
+
+    return res.status(200).json({
+      type: 'success',
+      apartments,
+    });
+  } catch (error) {
+    utils.alert(`list-blocks: ${error}`);
+    return res.status(200).json({
+      type: 'error',
+      code: 'list-blocks-error',
+    });
+  }
 });
 
 module.exports = router;
