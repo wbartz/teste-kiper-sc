@@ -3,16 +3,14 @@ import React from 'react';
 import { withRouter } from 'react-router';
 import Modal from '../../components/Modal';
 
-export const Success = ({ show, user, onClose }) => {
+export const Success = ({ show, onClose }) => {
   const handleFinish = () => onClose();
 
   return (
-    <Modal className="edit-modal" show={show} title="Usuário editado!">
+    <Modal className="edit-modal" show={show} title="Pronto!">
       <div className="row">
         <span>
-          O usuário
-          <b> {user?.fullName} </b>
-          foi alterado com sucesso.
+          O Apartamento foi editado com sucesso!
         </span>
       </div>
       <div className="row buttons">
@@ -26,12 +24,7 @@ export const Success = ({ show, user, onClose }) => {
 
 Success.propTypes = {
   show: PropTypes.bool.isRequired,
-  user: PropTypes.oneOfType([PropTypes.object]),
   onClose: PropTypes.func.isRequired,
-};
-
-Success.defaultProps = {
-  user: {},
 };
 
 export default withRouter(Success);

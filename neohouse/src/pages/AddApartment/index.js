@@ -4,22 +4,24 @@ import { useForm } from 'react-hook-form';
 import { AppContext } from '../../containers/StoreProvider';
 import { withRouter } from 'react-router-dom';
 import Form from './form';
-import validations from './validations';
+import * as yup from 'yup';
 import Success from './success';
 import './index.scss';
 
+const validationSchema = yup.object().shape({
+  number: yup.number().required('Este campo é obrigatório'),
+});
+
 const FormAddApartment = ({ history, location, addApartment }) => {
   const [showSuccess, setShowSuccess] = useState(false);
-  const [user, setUser] = useState({});
   const { handleSubmit, control, errors } = useForm({
-    validations,
+    validationSchema,
   });
 
   const { block_id } = location.state;
 
   const onSuccess = (values) => {
     setShowSuccess(true);
-    setUser(values);
   };
 
   const handleAdd = (values) => {
@@ -29,7 +31,7 @@ const FormAddApartment = ({ history, location, addApartment }) => {
   return (
     <div className="page add-apartment-page">
       <form onSubmit={handleSubmit(handleAdd)}>
-        <Form user={user} errors={errors} control={control} />
+        <Form errors={errors} control={control} />
 
         <div className="row buttons">
           <div className="col m8">
@@ -58,7 +60,6 @@ const FormAddApartment = ({ history, location, addApartment }) => {
 
       <Success
         show={showSuccess}
-        user={user}
         onClose={() => {
           setShowSuccess(false);
           history.push(`${location.pathname.replace('/novo-apartamento', '')}`, {

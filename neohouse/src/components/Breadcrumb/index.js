@@ -30,12 +30,12 @@ const Breadcrumb = ({ history, location }) => {
       });
     }
 
-    if (routes.length === 4) {
-      const urls = routes[3].split('-');
+    if (routes.length >= 4) {
+      const urls = routes[2].split('-');
       paths.push({
-        label: `${getPath(routes[2])} - ${getPath(urls[0])} ${getPath(urls[1])}`,
-        link: `/${routes[3]}/${routes[2]}`,
-        active: true,
+        label: `${getPath(routes[3])} - ${getPath(urls[0])} ${getPath(urls[1])}`,
+        link: `/${routes[0]}/${routes[1]}/${routes[2]}/${routes[3]}`,
+        active: routes.length === 4,
       });
     }
 
@@ -43,8 +43,16 @@ const Breadcrumb = ({ history, location }) => {
       const urls = routes[2].split('-');
       paths.push({
         label: `${getPath(urls[0])} ${getPath(urls[1])}`,
-        link: `/${routes[2]}`,
-        active: true,
+        link: `/${routes[0]}/${routes[1]}/${routes[2]}`,
+        active: routes.length === 3,
+      });
+    }
+    if(routes.length === 5) {
+      const urls = routes[4].split('-');
+      paths.push({
+        label: `${getPath(urls[0])} ${getPath(urls[1])}`,
+        link: `/${routes[0]}/${routes[1]}/${routes[2]}/${routes[3]}/${routes[4]}`,
+        active: routes.length === 5,
       });
     }
     setPages(paths);

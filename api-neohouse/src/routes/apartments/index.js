@@ -46,7 +46,7 @@ router.get('/:id', async (req, res) => {
 
     const apartment = await service.getById(id);
 
-    if (!apartament)
+    if (!apartment)
       return res.status(200).json({
         type: 'error',
         code: 'apartment-not-found',

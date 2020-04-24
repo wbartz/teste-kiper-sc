@@ -1,41 +1,61 @@
 import PropTypes from 'prop-types';
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useCallback, useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { AppContext } from '../../containers/StoreProvider';
 import { withRouter } from 'react-router-dom';
 import Form from './form';
 import validationSchema from './validations';
+import M from 'materialize-css';
 import Success from './success';
 import './index.scss';
+import { LOG } from '../../helpers';
 
-const FormResident = ({ history, location, addResident }) => {
+const FormEditResident = ({ history, location, editResident, getResident }) => {
   const [showSuccess, setShowSuccess] = useState(false);
-  const [user, setUser] = useState({});
-  const { handleSubmit, control, errors } = useForm({
+  const [hasData, setData] = useState(false);
+  const { handleSubmit, control, errors, setValue } = useForm({
     validationSchema,
   });
-  const { apartment_id } = location.state;
+  const { apartment_id, resident_id } = location.state;
 
-  const onSuccess = (values) => {
+  const setValues = (info) => {
+    return Object.keys(info).map((key) => {
+      let value = info[key];
+      setValue(key, value);
+      M.updateTextFields();
+      return;
+    });
+  };
+
+  const getDate = useCallback(async () => {
+    await getResident(resident_id, setValues);
+  }, [getResident]);
+
+  useEffect(() => {
+    if (!hasData) {
+      getDate();
+      setData(true);
+    }
+  }, [location, getDate, hasData]);
+
+  const onSuccess = () => {
     setShowSuccess(true);
-    setUser(values);
   };
 
   const handleAdd = (values) => {
-    addResident({ ...values, apartment_id }, onSuccess);
+    editResident(resident_id, { ...values, apartment_id }, onSuccess);
   };
-
+  
   return (
-    <div className="page add-resident-page">
+    <div className="page edit-resident-page">
       <form onSubmit={handleSubmit(handleAdd)}>
-        <Form user={user} errors={errors} control={control} />
+        <Form errors={errors} control={control} />
         <div className="row buttons">
           <div className="col m8">
             <div className="col m2 lef">
               <button
                 type="button"
                 className="btn btn-flat"
-                disabled={errors.length}
                 onClick={() => history.goBack()}
               >
                 Cancelar
@@ -45,7 +65,7 @@ const FormResident = ({ history, location, addResident }) => {
               <button
                 type="submit"
                 className="btn btn-submit primary"
-                disabled={errors.length}
+                disabled={errors.length > 0}
               >
                 Salvar
               </button>
@@ -56,7 +76,6 @@ const FormResident = ({ history, location, addResident }) => {
 
       <Success
         show={showSuccess}
-        user={user}
         onClose={() => {
           setShowSuccess(false);
         }}
@@ -65,12 +84,13 @@ const FormResident = ({ history, location, addResident }) => {
   );
 };
 
-FormResident.propTypes = {
+FormEditResident.propTypes = {
   history: PropTypes.shape({ push: PropTypes.func }).isRequired,
   location: PropTypes.oneOfType([PropTypes.object, PropTypes.array]).isRequired,
-  addResident: PropTypes.func.isRequired,
+  editResident: PropTypes.func.isRequired,
+  getResident: PropTypes.func.isRequired,
 };
 
 export default withRouter((props) => (
-  <FormResident {...useContext(AppContext)} {...props} />
+  <FormEditResident {...useContext(AppContext)} {...props} />
 ));

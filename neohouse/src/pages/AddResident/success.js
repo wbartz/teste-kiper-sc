@@ -7,12 +7,12 @@ export const Success = ({ show, user, onClose }) => {
   const handleFinish = () => onClose();
 
   return (
-    <Modal className="edit-modal" show={show} title="Usuário editado!">
+    <Modal className="edit-modal" show={show} title="Pronto!">
       <div className="row">
         <span>
-          O usuário
-          <b> {user?.fullName} </b>
-          foi alterado com sucesso.
+          O morador
+          <b> {user?.full_ame} </b>
+          foi criado com sucesso.
         </span>
       </div>
       <div className="row buttons">

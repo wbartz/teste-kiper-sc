@@ -1,0 +1,9 @@
+.confirm-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-left: 100px;
+
+  .primary {
+    align-self: flex-end;
+  }
+}

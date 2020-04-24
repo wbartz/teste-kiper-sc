@@ -76,6 +76,22 @@ body {
     color: #fff;
     background-color: $color-secondary;
   }
+
+  .alert {
+    font-size: $h6-font-size;
+    font-weight: bold;
+  }
+
+  .alert.danger {
+    color: $color-danger;
+  }
+  .alert.danger::before {
+    content: '* ';
+  }
+
+  .alert.success {
+    color: $color-success;
+  }
 }
 
 .container {

@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState, useCallback } from 'react';
 import PropTypes from 'prop-types';
 import { AppContext } from '../../containers/StoreProvider';
 import Table from '../../components/Table';
+import ConfirmRemove from './confirmRemove';
 import './index.scss';
 
 const Apartments = ({
@@ -12,6 +13,8 @@ const Apartments = ({
   history,
 }) => {
   const [hasData, setData] = useState(false);
+  const [showConfirm, setShowConfirm] = useState(false);
+  const [currentApartment, setCurrentApartment] = useState(null);
   const getData = useCallback(async () => {
     const { block_id } = location.state;
     await getApartments(block_id);
@@ -20,25 +23,33 @@ const Apartments = ({
   useEffect(() => {
     if (!hasData) {
       getData();
-      setData(true)
+      setData(true);
     }
   }, [location, getData, hasData]);
 
   const handleView = (id) =>
-    history.push(`${location.pathname}/moradores/apartamento-${id}`, {
+    history.push(`${location.pathname}/apartamento-${id}/moradores`, {
       block_id: location.state.block_id,
-      id,
+      apartment_id: id,
     });
   const handleEdit = (id) =>
-    history.push(`${location.pathname}/edit/apartamento-${id}`, {
+    history.push(`${location.pathname}/editar-apartamento`, {
       block_id: location.state.block_id,
-      id,
+      apartment_id: id,
     });
   const handleAdd = () =>
     history.push(`${location.pathname}/novo-apartamento`, {
       block_id: location.state.block_id,
     });
-  const handleDelete = (id) => removeApartment(id, getData);
+  const handleDelete = () => {
+    removeApartment(currentApartment, getData);
+    setCurrentApartment(null);
+    setShowConfirm(false);
+  }
+  const handleConfirm = (id) => {
+    setCurrentApartment(id);
+    setShowConfirm(true);
+  };
 
   return (
     <div className="page">
@@ -53,9 +64,18 @@ const Apartments = ({
           lines={apartments}
           onEdit={handleEdit}
           onView={handleView}
-          onRemove={handleDelete}
+          onRemove={handleConfirm}
         />
       </div>
+
+      <ConfirmRemove
+        show={showConfirm}
+        onClose={() => {
+          setCurrentApartment(null);
+          setShowConfirm(false);
+        }}
+        onConfirm={handleDelete}
+      />
     </div>
   );
 };
@@ -63,7 +83,7 @@ const Apartments = ({
 Apartments.propTypes = {
   getApartments: PropTypes.func.isRequired,
   removeApartment: PropTypes.func.isRequired,
-  apartments: PropTypes.oneOfType([PropTypes.array]),
+  apartments: PropTypes.oneOfType([PropTypes.array, PropTypes.object]),
   location: PropTypes.oneOfType([PropTypes.object, PropTypes.array]).isRequired,
   history: PropTypes.shape({ push: PropTypes.func }).isRequired,
 };

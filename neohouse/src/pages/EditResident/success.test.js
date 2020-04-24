@@ -1,7 +1,7 @@
 import { shallow } from 'enzyme';
 import React from 'react';
 import Modal from '../../../components/Modal';
-import Success from './success';
+import Success from './uccess';
 
 describe('Success', () => {
   let wrapper;

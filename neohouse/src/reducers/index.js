@@ -31,6 +31,9 @@ import {
   RESIDENTS_DELETE_REQUEST,
   RESIDENTS_DELETE_SUCCESS,
   RESIDENTS_DELETE_FAILURE,
+  CHANGE_RESIDENTS_REQUEST,
+  CHANGE_RESIDENTS_SUCCESS,
+  CHANGE_RESIDENTS_FAILURE,
 } from '../actions/residents';
 
 export const initialState = {
@@ -44,6 +47,7 @@ export const initialState = {
 export default (state = initialState, { type, ...action }) => {
   LOG(type);
   switch (type) {
+    case CHANGE_RESIDENTS_REQUEST:
     case CHANGE_APARTMENTS_REQUEST:
     case RESIDENTS_DELETE_REQUEST:
     case RESIDENTS_REQUEST:
@@ -56,6 +60,7 @@ export default (state = initialState, { type, ...action }) => {
         ...state,
         isLoading: true,
       };
+    case CHANGE_RESIDENTS_FAILURE:
     case CHANGE_APARTMENTS_FAILURE:
     case RESIDENTS_DELETE_FAILURE:
     case RESIDENTS_FAILURE:
@@ -105,13 +110,9 @@ export default (state = initialState, { type, ...action }) => {
         isLoading: false,
         error: null,
       };
+    case CHANGE_RESIDENTS_SUCCESS:
     case CHANGE_APARTMENTS_SUCCESS:
     case APARTMENTS_DELETE_SUCCESS:
-      return {
-        ...state,
-        isLoading: false,
-        error: null,
-      };
     case RESIDENTS_DELETE_SUCCESS:
       return {
         ...state,

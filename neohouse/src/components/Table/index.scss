@@ -31,7 +31,8 @@ table {
     }
 
     .table-actions {
-      width: 100px;
+      width: auto;
+      max-width: 100px;
       display: flex;
       text-align: right;
       justify-content: space-between;

@@ -6,7 +6,7 @@ import { onlyNumbers } from '../../helpers';
 
 const Form = ({ errors, control }) => {
   const [number, setNumber] = useState();
-
+  
   return (
     <>
       <div className="row">
@@ -19,7 +19,7 @@ const Form = ({ errors, control }) => {
             defaultValue={number}
             control={control}
             format={onlyNumbers}
-            errormsg={errors.number && errors.number.message}
+            error={errors.number && errors.number.message}
             size="auto"
           />
         </div>

@@ -6,7 +6,7 @@ import TextField from '../../components/TextField';
 import SelectField from '../../components/SelectField';
 
 const Form = ({ errors, control }) => {
-  const [full_name, setFullName] = useState();
+  const [fullName, setFullName] = useState();
   const [email, setEmail] = useState();
   const [cpf, setCpf] = useState();
   const [phone, setPhone] = useState();
@@ -39,12 +39,12 @@ const Form = ({ errors, control }) => {
         <div className="col m8">
           <Controller
             as={<TextField onChange={setFullName} />}
-            valueName={full_name}
+            valueName={fullName}
             name="full_name"
             label="Nome completo"
-            defaultValue={full_name}
+            defaultValue={fullName}
             control={control}
-            error={errors.full_name && errors.full_name.message}
+            error={errors.fullName && errors.fullName.message}
             size="auto"
           />
         </div>
@@ -57,7 +57,7 @@ const Form = ({ errors, control }) => {
             name="birthday"
             label="Data de nascimento"
             defaultValue={birthday}
-            type="text"
+            type="datepicker"
             control={control}
             format={formatDate}
             error={errors.birthday && errors.birthday.message}

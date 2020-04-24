@@ -34,33 +34,43 @@ const Table = ({ header, lines, onEdit, onRemove, onView }) => {
                         </td>
                       );
                     }
-                    return <td key={line[index] || Math.random()}>{line[index] || ' - '}</td>;
+                    return (
+                      <td key={line[index] || Math.random()}>
+                        {line[index] || ' - '}
+                      </td>
+                    );
                   }
                   return null;
                 })}
                 <td className="table-actions right">
                   <ReactTooltip key={line.id} />
-                  <i
-                    className="material-icons view"
-                    data-tip="Ver Moradores"
-                    onClick={() => onView(line.id)}
-                  >
-                    visibility
-                  </i>
-                  <i
-                    className="material-icons edit"
-                    data-tip="Editar Apartamento"
-                    onClick={() => onEdit(line.id)}
-                  >
-                    edit
-                  </i>
-                  <i
-                    className="material-icons remove"
-                    data-tip="Remover Apartamento"
-                    onClick={() => onRemove(line.id)}
-                  >
-                    delete
-                  </i>
+                  {onView && (
+                    <i
+                      className="material-icons view"
+                      data-tip="Ver Moradores"
+                      onClick={() => onView(line.id)}
+                    >
+                      visibility
+                    </i>
+                  )}
+                  {onEdit && (
+                    <i
+                      className="material-icons edit"
+                      data-tip="Editar Apartamento"
+                      onClick={() => onEdit(line.id)}
+                    >
+                      edit
+                    </i>
+                  )}
+                  {onRemove && (
+                    <i
+                      className="material-icons remove"
+                      data-tip="Remover Apartamento"
+                      onClick={() => onRemove(line.id)}
+                    >
+                      delete
+                    </i>
+                  )}
                 </td>
               </tr>
             ))
@@ -79,10 +89,16 @@ const Table = ({ header, lines, onEdit, onRemove, onView }) => {
 
 Table.propTypes = {
   header: PropTypes.oneOfType([PropTypes.array]).isRequired,
-  lines: PropTypes.oneOfType([PropTypes.array]).isRequired,
-  onEdit: PropTypes.func.isRequired,
-  onView: PropTypes.func.isRequired,
-  onRemove: PropTypes.func.isRequired,
+  lines: PropTypes.oneOfType([PropTypes.array, PropTypes.object]).isRequired,
+  onEdit: PropTypes.func,
+  onView: PropTypes.func,
+  onRemove: PropTypes.func,
+};
+
+Table.defaultProps = {
+  onEdit: null,
+  onView: null,
+  onRemove: null,
 };
 
 export default Table;

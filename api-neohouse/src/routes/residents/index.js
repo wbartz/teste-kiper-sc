@@ -11,11 +11,38 @@ const utils = require('../../utils');
  * @returns {string} code
  * @returns {Array.<Residents>} residents - Lista de moradores
  */
-router.get('/:apartment_id', async (req, res) => {
+router.get('/apartment/:apartment_id', async (req, res) => {
   try {
     const { apartment_id } = req.params;
 
     const residents = await service.getByApartment(apartment_id);
+
+    return res.status(200).json({
+      type: 'success',
+      residents,
+    });
+  } catch (error) {
+    utils.alert(`list-residents: ${error}`);
+    return res.status(200).json({
+      type: 'error',
+      code: 'list-residents-error',
+    });
+  }
+});
+
+/**
+ * @route GET /api/v1/residents/:resident_id
+ * @group residents - Buscar um morador
+ * @param {int} resident_id.query.required - ID do morador
+ * @returns {string} type - ex.: Success - error - warning
+ * @returns {string} code
+ * @returns {Array.<Residents>} residents - Lista de moradores
+ */
+router.get('/:resident_id', async (req, res) => {
+  try {
+    const { resident_id } = req.params;
+
+    const residents = await service.getById(resident_id);
 
     return res.status(200).json({
       type: 'success',
@@ -44,9 +71,9 @@ router.get('/:apartment_id', async (req, res) => {
  * @returns {string} code
  * @returns {Residents.model} residents - Novo morador
  */
-router.get('/', async (req, res) => {
+router.post('/', async (req, res) => {
   try {
-    const { full_name, phone, cpf, email, birthday, apartment_id } = req.body;
+    const { full_name, phone, cpf, email, birthday, apartment_id, accountable } = req.body;
 
     if (!full_name || !phone || !cpf || !email || !birthday || !apartment_id) {
       return res.status(200).json({
@@ -56,8 +83,8 @@ router.get('/', async (req, res) => {
     }
 
     const hasAccountable = await service.getAccountable(apartment_id);
-
-    if (hasAccountable) {
+    
+    if (hasAccountable.length > 0 && accountable) {
       return res.status(200).json({
         type: 'error',
         code: 'accountable-error',
@@ -111,6 +138,16 @@ router.put('/:id', async (req, res) => {
       return res.status(200).json({
         type: 'error',
         code: 'resident-not-found',
+      });
+    }
+
+    const hasAccountable = await service.getAccountable(apartment_id);
+    const { accountable } = req.body;
+
+    if (hasAccountable.length > 0 && accountable) {
+      return res.status(200).json({
+        type: 'error',
+        code: 'accountable-error',
       });
     }
 

@@ -1,9 +1,9 @@
 import { shallow } from 'enzyme';
 import React from 'react';
 import Modal from '../../../components/Modal';
-import Success from './success';
+import AddResident from '.';
 
-describe('Success', () => {
+describe('AddResident', () => {
   let wrapper;
   const props = {
     history: {
@@ -15,7 +15,7 @@ describe('Success', () => {
   };
 
   beforeEach(() => {
-    wrapper = shallow(<Success {...props} />);
+    wrapper = shallow(<AddResident {...props} />);
   });
 
   it('render without crashing', () => {

@@ -12,6 +12,7 @@ describe('EditApartment', () => {
     onClose: jest.fn(),
     user: {},
     show: false,
+    editApartment: jest.fn()
   };
 
   beforeEach(() => {

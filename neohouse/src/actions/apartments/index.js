@@ -36,6 +36,32 @@ export const getApartments = (block_id) => async (dispatch) => {
     });
 };
 
+export const getApartment = (apartment_id, onSuccess) => async (dispatch) => {
+  dispatch({ type: APARTMENTS_REQUEST });
+
+  await fetchAPI(`/apartments/${apartment_id}`)
+    .then(({ data }) => {
+      if (data.type === 'success') {
+        dispatch({
+          type: APARTMENTS_SUCCESS,
+          apartments: data.apartment,
+        });
+        return onSuccess(data.apartment);
+      }
+      dispatch({
+        type: APARTMENTS_FAILURE,
+        error: data.code,
+      });
+    })
+    .catch((error) => {
+      LOG(APARTMENTS_FAILURE, error);
+      dispatch({
+        type: APARTMENTS_FAILURE,
+        error,
+      });
+    });
+};
+
 export const removeApartment = (id, onSuccess) => async (dispatch) => {
   dispatch({ type: APARTMENTS_DELETE_REQUEST });
 

@@ -26,7 +26,7 @@ module.exports = {
         accountable: true,
       },
     }),
-  getById: async (id) => await Residents.findOne({ id }),
+  getById: async (id) => await Residents.findOne({ where: { id } }),
   add: async (resident) =>
     await Residents.create({
       ...resident,

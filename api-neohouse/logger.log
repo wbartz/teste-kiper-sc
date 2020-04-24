@@ -110,3 +110,140 @@
         AND r.apartment_id = a.id
         AND r.acc' at line 10
 [33mwarn[39m: [ERROR: 2020-04-24T04:07:17.723Z] - list-blocks: SequelizeDatabaseError: Unknown column 'r.apartment_id' in 'on clause'
+[33mwarn[39m: [ERROR: 2020-04-24T11:48:53.898Z] - list-dashboard: SequelizeConnectionRefusedError: connect ECONNREFUSED 127.0.0.1:3306
+[33mwarn[39m: [ERROR: 2020-04-24T11:48:53.922Z] - list-dashboard: SequelizeConnectionRefusedError: connect ECONNREFUSED 127.0.0.1:3306
+[33mwarn[39m: [ERROR: 2020-04-24T11:48:53.931Z] - list-dashboard: SequelizeConnectionRefusedError: connect ECONNREFUSED 127.0.0.1:3306
+[33mwarn[39m: [ERROR: 2020-04-24T11:48:53.939Z] - list-dashboard: SequelizeConnectionRefusedError: connect ECONNREFUSED 127.0.0.1:3306
+[33mwarn[39m: [ERROR: 2020-04-24T11:48:53.947Z] - list-dashboard: SequelizeConnectionRefusedError: connect ECONNREFUSED 127.0.0.1:3306
+[33mwarn[39m: [ERROR: 2020-04-24T11:48:53.952Z] - list-dashboard: SequelizeConnectionRefusedError: connect ECONNREFUSED 127.0.0.1:3306
+[33mwarn[39m: [ERROR: 2020-04-24T11:48:53.957Z] - list-dashboard: SequelizeConnectionRefusedError: connect ECONNREFUSED 127.0.0.1:3306
+[33mwarn[39m: [ERROR: 2020-04-24T11:48:53.962Z] - list-dashboard: SequelizeConnectionRefusedError: connect ECONNREFUSED 127.0.0.1:3306
+[33mwarn[39m: [ERROR: 2020-04-24T11:48:53.970Z] - list-dashboard: SequelizeConnectionRefusedError: connect ECONNREFUSED 127.0.0.1:3306
+[33mwarn[39m: [ERROR: 2020-04-24T12:53:19.783Z] - get-apartment-error: ReferenceError: apartament is not defined
+[33mwarn[39m: [ERROR: 2020-04-24T12:53:19.837Z] - get-apartment-error: ReferenceError: apartament is not defined
+[33mwarn[39m: [ERROR: 2020-04-24T12:53:19.873Z] - get-apartment-error: ReferenceError: apartament is not defined
+[33mwarn[39m: [ERROR: 2020-04-24T12:53:19.913Z] - get-apartment-error: ReferenceError: apartament is not defined
+[33mwarn[39m: [ERROR: 2020-04-24T12:53:19.948Z] - get-apartment-error: ReferenceError: apartament is not defined
+[33mwarn[39m: [ERROR: 2020-04-24T12:53:19.982Z] - get-apartment-error: ReferenceError: apartament is not defined
+[33mwarn[39m: [ERROR: 2020-04-24T12:53:20.025Z] - get-apartment-error: ReferenceError: apartament is not defined
+[33mwarn[39m: [ERROR: 2020-04-24T12:53:20.066Z] - get-apartment-error: ReferenceError: apartament is not defined
+[33mwarn[39m: [ERROR: 2020-04-24T12:53:20.095Z] - get-apartment-error: ReferenceError: apartament is not defined
+[33mwarn[39m: [ERROR: 2020-04-24T12:53:20.121Z] - get-apartment-error: ReferenceError: apartament is not defined
+[33mwarn[39m: [ERROR: 2020-04-24T12:53:20.153Z] - get-apartment-error: ReferenceError: apartament is not defined
+[33mwarn[39m: [ERROR: 2020-04-24T12:53:20.213Z] - get-apartment-error: ReferenceError: apartament is not defined
+[33mwarn[39m: [ERROR: 2020-04-24T12:53:20.248Z] - get-apartment-error: ReferenceError: apartament is not defined
+[33mwarn[39m: [ERROR: 2020-04-24T12:53:20.268Z] - get-apartment-error: ReferenceError: apartament is not defined
+[33mwarn[39m: [ERROR: 2020-04-24T12:53:20.320Z] - get-apartment-error: ReferenceError: apartament is not defined
+[33mwarn[39m: [ERROR: 2020-04-24T12:53:20.344Z] - get-apartment-error: ReferenceError: apartament is not defined
+[33mwarn[39m: [ERROR: 2020-04-24T12:53:20.366Z] - get-apartment-error: ReferenceError: apartament is not defined
+[33mwarn[39m: [ERROR: 2020-04-24T12:53:20.400Z] - get-apartment-error: ReferenceError: apartament is not defined
+[33mwarn[39m: [ERROR: 2020-04-24T12:53:20.424Z] - get-apartment-error: ReferenceError: apartament is not defined
+[33mwarn[39m: [ERROR: 2020-04-24T12:53:20.452Z] - get-apartment-error: ReferenceError: apartament is not defined
+[33mwarn[39m: [ERROR: 2020-04-24T12:53:20.477Z] - get-apartment-error: ReferenceError: apartament is not defined
+[33mwarn[39m: [ERROR: 2020-04-24T12:53:20.514Z] - get-apartment-error: ReferenceError: apartament is not defined
+[33mwarn[39m: [ERROR: 2020-04-24T12:53:20.549Z] - get-apartment-error: ReferenceError: apartament is not defined
+[33mwarn[39m: [ERROR: 2020-04-24T12:53:20.574Z] - get-apartment-error: ReferenceError: apartament is not defined
+[33mwarn[39m: [ERROR: 2020-04-24T12:53:20.605Z] - get-apartment-error: ReferenceError: apartament is not defined
+[33mwarn[39m: [ERROR: 2020-04-24T12:53:20.629Z] - get-apartment-error: ReferenceError: apartament is not defined
+[33mwarn[39m: [ERROR: 2020-04-24T12:53:20.651Z] - get-apartment-error: ReferenceError: apartament is not defined
+[33mwarn[39m: [ERROR: 2020-04-24T12:53:20.684Z] - get-apartment-error: ReferenceError: apartament is not defined
+[33mwarn[39m: [ERROR: 2020-04-24T12:53:20.718Z] - get-apartment-error: ReferenceError: apartament is not defined
+[33mwarn[39m: [ERROR: 2020-04-24T12:53:20.754Z] - get-apartment-error: ReferenceError: apartament is not defined
+[33mwarn[39m: [ERROR: 2020-04-24T12:53:20.780Z] - get-apartment-error: ReferenceError: apartament is not defined
+[33mwarn[39m: [ERROR: 2020-04-24T12:53:20.815Z] - get-apartment-error: ReferenceError: apartament is not defined
+[33mwarn[39m: [ERROR: 2020-04-24T12:53:20.844Z] - get-apartment-error: ReferenceError: apartament is not defined
+[33mwarn[39m: [ERROR: 2020-04-24T12:53:20.869Z] - get-apartment-error: ReferenceError: apartament is not defined
+[33mwarn[39m: [ERROR: 2020-04-24T12:53:20.926Z] - get-apartment-error: ReferenceError: apartament is not defined
+[33mwarn[39m: [ERROR: 2020-04-24T12:53:20.960Z] - get-apartment-error: ReferenceError: apartament is not defined
+[33mwarn[39m: [ERROR: 2020-04-24T12:53:20.994Z] - get-apartment-error: ReferenceError: apartament is not defined
+[33mwarn[39m: [ERROR: 2020-04-24T12:53:21.024Z] - get-apartment-error: ReferenceError: apartament is not defined
+[33mwarn[39m: [ERROR: 2020-04-24T12:53:21.041Z] - get-apartment-error: ReferenceError: apartament is not defined
+[33mwarn[39m: [ERROR: 2020-04-24T12:53:21.068Z] - get-apartment-error: ReferenceError: apartament is not defined
+[33mwarn[39m: [ERROR: 2020-04-24T12:53:21.093Z] - get-apartment-error: ReferenceError: apartament is not defined
+[33mwarn[39m: [ERROR: 2020-04-24T12:53:21.135Z] - get-apartment-error: ReferenceError: apartament is not defined
+[33mwarn[39m: [ERROR: 2020-04-24T12:53:21.164Z] - get-apartment-error: ReferenceError: apartament is not defined
+[33mwarn[39m: [ERROR: 2020-04-24T12:53:21.184Z] - get-apartment-error: ReferenceError: apartament is not defined
+[33mwarn[39m: [ERROR: 2020-04-24T12:53:21.229Z] - get-apartment-error: ReferenceError: apartament is not defined
+[33mwarn[39m: [ERROR: 2020-04-24T12:53:21.252Z] - get-apartment-error: ReferenceError: apartament is not defined
+[33mwarn[39m: [ERROR: 2020-04-24T12:53:21.283Z] - get-apartment-error: ReferenceError: apartament is not defined
+[33mwarn[39m: [ERROR: 2020-04-24T12:53:21.325Z] - get-apartment-error: ReferenceError: apartament is not defined
+[33mwarn[39m: [ERROR: 2020-04-24T12:53:21.347Z] - get-apartment-error: ReferenceError: apartament is not defined
+[33mwarn[39m: [ERROR: 2020-04-24T12:53:21.389Z] - get-apartment-error: ReferenceError: apartament is not defined
+[33mwarn[39m: [ERROR: 2020-04-24T12:53:23.553Z] - get-apartment-error: ReferenceError: apartament is not defined
+[33mwarn[39m: [ERROR: 2020-04-24T12:53:23.562Z] - get-apartment-error: ReferenceError: apartament is not defined
+[33mwarn[39m: [ERROR: 2020-04-24T12:53:23.572Z] - get-apartment-error: ReferenceError: apartament is not defined
+[33mwarn[39m: [ERROR: 2020-04-24T12:53:23.580Z] - get-apartment-error: ReferenceError: apartament is not defined
+[33mwarn[39m: [ERROR: 2020-04-24T12:53:23.588Z] - get-apartment-error: ReferenceError: apartament is not defined
+[33mwarn[39m: [ERROR: 2020-04-24T12:53:23.598Z] - get-apartment-error: ReferenceError: apartament is not defined
+[33mwarn[39m: [ERROR: 2020-04-24T12:53:23.607Z] - get-apartment-error: ReferenceError: apartament is not defined
+[33mwarn[39m: [ERROR: 2020-04-24T12:53:23.619Z] - get-apartment-error: ReferenceError: apartament is not defined
+[33mwarn[39m: [ERROR: 2020-04-24T12:53:23.627Z] - get-apartment-error: ReferenceError: apartament is not defined
+[33mwarn[39m: [ERROR: 2020-04-24T12:53:23.791Z] - get-apartment-error: ReferenceError: apartament is not defined
+[33mwarn[39m: [ERROR: 2020-04-24T12:53:23.805Z] - get-apartment-error: ReferenceError: apartament is not defined
+[33mwarn[39m: [ERROR: 2020-04-24T12:53:23.819Z] - get-apartment-error: ReferenceError: apartament is not defined
+[33mwarn[39m: [ERROR: 2020-04-24T12:53:23.827Z] - get-apartment-error: ReferenceError: apartament is not defined
+[33mwarn[39m: [ERROR: 2020-04-24T12:53:23.838Z] - get-apartment-error: ReferenceError: apartament is not defined
+[33mwarn[39m: [ERROR: 2020-04-24T12:53:23.847Z] - get-apartment-error: ReferenceError: apartament is not defined
+[33mwarn[39m: [ERROR: 2020-04-24T12:53:23.857Z] - get-apartment-error: ReferenceError: apartament is not defined
+[33mwarn[39m: [ERROR: 2020-04-24T12:53:23.868Z] - get-apartment-error: ReferenceError: apartament is not defined
+[33mwarn[39m: [ERROR: 2020-04-24T12:53:23.879Z] - get-apartment-error: ReferenceError: apartament is not defined
+[33mwarn[39m: [ERROR: 2020-04-24T12:54:08.012Z] - get-apartment-error: ReferenceError: apartament is not defined
+[33mwarn[39m: [ERROR: 2020-04-24T12:54:08.027Z] - get-apartment-error: ReferenceError: apartament is not defined
+[33mwarn[39m: [ERROR: 2020-04-24T12:54:08.043Z] - get-apartment-error: ReferenceError: apartament is not defined
+[33mwarn[39m: [ERROR: 2020-04-24T12:54:08.059Z] - get-apartment-error: ReferenceError: apartament is not defined
+[33mwarn[39m: [ERROR: 2020-04-24T12:54:08.075Z] - get-apartment-error: ReferenceError: apartament is not defined
+[33mwarn[39m: [ERROR: 2020-04-24T12:54:08.089Z] - get-apartment-error: ReferenceError: apartament is not defined
+[33mwarn[39m: [ERROR: 2020-04-24T12:54:08.126Z] - get-apartment-error: ReferenceError: apartament is not defined
+[33mwarn[39m: [ERROR: 2020-04-24T12:54:08.284Z] - get-apartment-error: ReferenceError: apartament is not defined
+[33mwarn[39m: [ERROR: 2020-04-24T12:54:08.298Z] - get-apartment-error: ReferenceError: apartament is not defined
+[33mwarn[39m: [ERROR: 2020-04-24T12:54:08.308Z] - get-apartment-error: ReferenceError: apartament is not defined
+[33mwarn[39m: [ERROR: 2020-04-24T12:54:08.327Z] - get-apartment-error: ReferenceError: apartament is not defined
+[33mwarn[39m: [ERROR: 2020-04-24T12:54:08.337Z] - get-apartment-error: ReferenceError: apartament is not defined
+[33mwarn[39m: [ERROR: 2020-04-24T12:54:08.357Z] - get-apartment-error: ReferenceError: apartament is not defined
+[33mwarn[39m: [ERROR: 2020-04-24T12:54:08.368Z] - get-apartment-error: ReferenceError: apartament is not defined
+[33mwarn[39m: [ERROR: 2020-04-24T12:54:08.380Z] - get-apartment-error: ReferenceError: apartament is not defined
+[33mwarn[39m: [ERROR: 2020-04-24T12:54:08.394Z] - get-apartment-error: ReferenceError: apartament is not defined
+[33mwarn[39m: [ERROR: 2020-04-24T12:54:08.416Z] - get-apartment-error: ReferenceError: apartament is not defined
+[33mwarn[39m: [ERROR: 2020-04-24T12:54:08.441Z] - get-apartment-error: ReferenceError: apartament is not defined
+[33mwarn[39m: [ERROR: 2020-04-24T12:54:08.462Z] - get-apartment-error: ReferenceError: apartament is not defined
+[33mwarn[39m: [ERROR: 2020-04-24T12:54:08.485Z] - get-apartment-error: ReferenceError: apartament is not defined
+[33mwarn[39m: [ERROR: 2020-04-24T12:54:08.505Z] - get-apartment-error: ReferenceError: apartament is not defined
+[33mwarn[39m: [ERROR: 2020-04-24T12:54:08.527Z] - get-apartment-error: ReferenceError: apartament is not defined
+[33mwarn[39m: [ERROR: 2020-04-24T12:54:08.546Z] - get-apartment-error: ReferenceError: apartament is not defined
+[33mwarn[39m: [ERROR: 2020-04-24T12:54:08.575Z] - get-apartment-error: ReferenceError: apartament is not defined
+[33mwarn[39m: [ERROR: 2020-04-24T12:54:08.588Z] - get-apartment-error: ReferenceError: apartament is not defined
+[33mwarn[39m: [ERROR: 2020-04-24T12:54:08.612Z] - get-apartment-error: ReferenceError: apartament is not defined
+[33mwarn[39m: [ERROR: 2020-04-24T12:54:08.628Z] - get-apartment-error: ReferenceError: apartament is not defined
+[33mwarn[39m: [ERROR: 2020-04-24T12:54:08.647Z] - get-apartment-error: ReferenceError: apartament is not defined
+[33mwarn[39m: [ERROR: 2020-04-24T12:54:08.666Z] - get-apartment-error: ReferenceError: apartament is not defined
+[33mwarn[39m: [ERROR: 2020-04-24T12:54:08.684Z] - get-apartment-error: ReferenceError: apartament is not defined
+[33mwarn[39m: [ERROR: 2020-04-24T12:54:08.736Z] - get-apartment-error: ReferenceError: apartament is not defined
+[33mwarn[39m: [ERROR: 2020-04-24T12:54:08.748Z] - get-apartment-error: ReferenceError: apartament is not defined
+[33mwarn[39m: [ERROR: 2020-04-24T12:54:08.761Z] - get-apartment-error: ReferenceError: apartament is not defined
+[33mwarn[39m: [ERROR: 2020-04-24T12:54:08.788Z] - get-apartment-error: ReferenceError: apartament is not defined
+[33mwarn[39m: [ERROR: 2020-04-24T12:54:08.795Z] - get-apartment-error: ReferenceError: apartament is not defined
+[33mwarn[39m: [ERROR: 2020-04-24T12:54:08.808Z] - get-apartment-error: ReferenceError: apartament is not defined
+[33mwarn[39m: [ERROR: 2020-04-24T12:54:08.821Z] - get-apartment-error: ReferenceError: apartament is not defined
+[33mwarn[39m: [ERROR: 2020-04-24T12:54:08.842Z] - get-apartment-error: ReferenceError: apartament is not defined
+[33mwarn[39m: [ERROR: 2020-04-24T12:54:08.858Z] - get-apartment-error: ReferenceError: apartament is not defined
+[33mwarn[39m: [ERROR: 2020-04-24T12:54:08.871Z] - get-apartment-error: ReferenceError: apartament is not defined
+[33mwarn[39m: [ERROR: 2020-04-24T12:54:08.890Z] - get-apartment-error: ReferenceError: apartament is not defined
+[33mwarn[39m: [ERROR: 2020-04-24T12:54:08.908Z] - get-apartment-error: ReferenceError: apartament is not defined
+[33mwarn[39m: [ERROR: 2020-04-24T12:54:08.922Z] - get-apartment-error: ReferenceError: apartament is not defined
+[33mwarn[39m: [ERROR: 2020-04-24T12:54:08.935Z] - get-apartment-error: ReferenceError: apartament is not defined
+[33mwarn[39m: [ERROR: 2020-04-24T12:54:08.950Z] - get-apartment-error: ReferenceError: apartament is not defined
+[33mwarn[39m: [ERROR: 2020-04-24T12:54:08.964Z] - get-apartment-error: ReferenceError: apartament is not defined
+[33mwarn[39m: [ERROR: 2020-04-24T12:54:08.979Z] - get-apartment-error: ReferenceError: apartament is not defined
+[33mwarn[39m: [ERROR: 2020-04-24T12:54:08.999Z] - get-apartment-error: ReferenceError: apartament is not defined
+[33mwarn[39m: [ERROR: 2020-04-24T12:54:09.015Z] - get-apartment-error: ReferenceError: apartament is not defined
+[33mwarn[39m: [ERROR: 2020-04-24T12:54:09.026Z] - get-apartment-error: ReferenceError: apartament is not defined
+[33mwarn[39m: [ERROR: 2020-04-24T12:54:09.039Z] - get-apartment-error: ReferenceError: apartament is not defined
+[33mwarn[39m: [ERROR: 2020-04-24T12:54:09.056Z] - get-apartment-error: ReferenceError: apartament is not defined
+[33mwarn[39m: [ERROR: 2020-04-24T12:54:09.075Z] - get-apartment-error: ReferenceError: apartament is not defined
+[33mwarn[39m: [ERROR: 2020-04-24T12:54:09.126Z] - get-apartment-error: ReferenceError: apartament is not defined
+[33mwarn[39m: [ERROR: 2020-04-24T12:54:09.135Z] - get-apartment-error: ReferenceError: apartament is not defined
+[33mwarn[39m: [ERROR: 2020-04-24T12:54:09.146Z] - get-apartment-error: ReferenceError: apartament is not defined
+[33mwarn[39m: [ERROR: 2020-04-24T12:54:09.156Z] - get-apartment-error: ReferenceError: apartament is not defined
+[33mwarn[39m: [ERROR: 2020-04-24T12:56:49.914Z] - get-apartment-error: ReferenceError: apartament is not defined
+[33mwarn[39m: [ERROR: 2020-04-24T14:46:41.977Z] - list-blocks: SequelizeDatabaseError: Unknown column 'undefined' in 'where clause'
+[33mwarn[39m: [ERROR: 2020-04-24T14:53:36.320Z] - list-blocks: SequelizeDatabaseError: Unknown column 'undefined' in 'where clause'

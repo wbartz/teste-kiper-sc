@@ -1,6 +1,6 @@
 import * as yup from 'yup';
 
-const phoneRegEx = /\(\d{2,}\) \d{4,} \d{4}/g;
+const phoneRegEx = /\(\d{2,}\) \d{1,} \d{4,} \d{4}/g;
 
 const defaulSchema = yup.object().shape({
   email: yup

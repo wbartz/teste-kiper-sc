@@ -17,6 +17,7 @@ const TextField = ({
   customValidity,
   customValidityMessage,
   format,
+  error,
   ...rest
 }) => {
   const [errormsg, setErrorMsg] = useState();
@@ -28,7 +29,7 @@ const TextField = ({
   }, [label]);
 
   useEffect(() => {
-    if(type === 'datepicker') M.Datepicker.init(fieldRef.current, options)
+    M.updateTextFields();
   }, [type])
 
   const resetErrors = target => {
@@ -100,7 +101,8 @@ const TextField = ({
       />
       {label && <label htmlFor={name}>{label}</label>}
       {icon && <i className="material-icons postfix">{icon}</i>}
-      {errormsg && <span>{errormsg}</span>}
+      {errormsg && <span className="alert danger">{errormsg}</span>}
+      {error && <span className="alert danger">{error}</span>}
     </div>
   );
 };
